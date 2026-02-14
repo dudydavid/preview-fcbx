@@ -2,15 +2,25 @@ import { useNavigate, useLocation } from "react-router-dom";
 import type { ReactNode, MouseEvent } from "react";
 
 interface AnchorLinkProps {
-  to: string; // e.g. "/#pricing"
+  to: string;
   className?: string;
   onClick?: () => void;
   children: ReactNode;
 }
 
+const NAVBAR_OFFSET = 80;
+
 const AnchorLink = ({ to, className, onClick, children }: AnchorLinkProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const scrollToHash = (hash: string) => {
+    const el = document.getElementById(hash);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
 
   const handleClick = (e: MouseEvent) => {
     e.preventDefault();
@@ -20,15 +30,11 @@ const AnchorLink = ({ to, className, onClick, children }: AnchorLinkProps) => {
     const targetPath = path || "/";
 
     if (location.pathname === targetPath && hash) {
-      const el = document.getElementById(hash);
-      el?.scrollIntoView({ behavior: "smooth" });
+      scrollToHash(hash);
     } else {
       navigate(targetPath);
       if (hash) {
-        setTimeout(() => {
-          const el = document.getElementById(hash);
-          el?.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        setTimeout(() => scrollToHash(hash), 150);
       }
     }
   };

@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import { Link } from "react-router-dom";
 import { Shield, Lightbulb, TrendingUp } from "lucide-react";
 
@@ -30,7 +31,7 @@ const AboutHero = () => (
         </div>
         <Reveal delay={300}>
           <div className="rounded-[28px] overflow-hidden shadow-heavy" style={{ aspectRatio: "4/3" }}>
-            <img src="/placeholder.svg" alt="FocusBox team" className="w-full h-full object-cover" />
+            <img src="/placeholder.svg" alt="FocusBox team" className="w-full h-full object-cover" loading="lazy" width="600" height="450" />
           </div>
         </Reveal>
       </div>
@@ -142,7 +143,7 @@ const ApproachSection = () => (
               </p>
             </div>
             <div className="rounded-[20px] overflow-hidden">
-              <img src="/placeholder.svg" alt="App dashboard mockup" className="w-full h-full object-cover" />
+              <img src="/placeholder.svg" alt="App dashboard mockup" className="w-full h-full object-cover" loading="lazy" width="400" height="300" />
             </div>
           </div>
         </div>
@@ -182,7 +183,7 @@ const TeamSection = () => (
           <Reveal key={m.name} delay={200 + i * 100}>
             <div className="text-center">
               <div className="w-[120px] h-[120px] rounded-full border-4 border-background shadow-card overflow-hidden mx-auto mb-5">
-                <img src="/placeholder.svg" alt={m.name} className="w-full h-full object-cover" />
+                <img src="/placeholder.svg" alt={m.name} className="w-full h-full object-cover" loading="lazy" width="120" height="120" />
               </div>
               <h3 className="font-body text-lg font-bold text-foreground">{m.name}</h3>
               <p className="font-body text-sm text-accent font-medium">{m.role}</p>
@@ -243,6 +244,10 @@ const AboutCTA = () => (
 
 const About = () => (
   <>
+    <PageMeta
+      title="About FocusBox — Our Story"
+      description="Built by student founders who grew up struggling with focus. FocusBox is the tool we wished we had as kids and the dashboard our parents deserved."
+    />
     <AboutHero />
     <MissionSection />
     <ValuesSection />

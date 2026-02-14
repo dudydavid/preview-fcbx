@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import { Link } from "react-router-dom";
 
 const sections = [
@@ -77,6 +78,10 @@ const sections = [
 const Terms = () => {
   return (
     <>
+      <PageMeta
+        title="Terms of Service — FocusBox"
+        description="Terms of service for FocusBox focus training system. 14-day returns, cancel anytime."
+      />
       {/* HEADER */}
       <section style={{ background: "#F7F6F3" }}>
         <div className="max-w-[800px] mx-auto px-6 pt-[140px] pb-[60px] text-center">

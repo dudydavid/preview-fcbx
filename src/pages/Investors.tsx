@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import {
   CheckCircle,
   XCircle,
@@ -430,6 +431,10 @@ const InvestorCTA = () => (
 /* ------------------------------------------------------------------ */
 const Investors = () => (
   <>
+    <PageMeta
+      title="FocusBox for Investors — The Childhood Focus Category"
+      description="Unit-profitable from day one. Hardware + SaaS + AI coaching platform for children's focus training. See the opportunity."
+    />
     <HeroSection />
     <MetricsSection />
     <MarketSection />

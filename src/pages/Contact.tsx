@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import {
   Mail,
   Briefcase,
@@ -420,6 +421,10 @@ const TrustStrip = () => (
 /* ------------------------------------------------------------------ */
 const Contact = () => (
   <>
+    <PageMeta
+      title="Contact FocusBox — Join the Founding Families"
+      description="Request your spot as a Founding Family or get in touch about investment opportunities."
+    />
     <HeroSection />
     <FormSection />
     <AltContactSection />

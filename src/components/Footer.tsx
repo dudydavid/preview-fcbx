@@ -84,7 +84,7 @@ const Footer = () => {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-[1200px] mx-auto px-6 py-5 flex flex-col min-[900px]:flex-row justify-between gap-4 text-xs">
-          <span>© 2026 FocusBox. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} FocusBox. All rights reserved.</span>
           <span className="max-w-md text-right">
             FocusBox is not a medical device. Recommendations follow best practices, not clinical advice.
           </span>

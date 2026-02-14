@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 
 const sections = [
   {
@@ -56,6 +57,10 @@ const sections = [
 const Privacy = () => {
   return (
     <>
+      <PageMeta
+        title="Privacy Policy — FocusBox"
+        description="How FocusBox handles your data. Zero child PII. Full export and deletion rights. GDPR-ready."
+      />
       {/* HEADER */}
       <section style={{ background: "#F7F6F3" }}>
         <div className="max-w-[800px] mx-auto px-6 pt-[140px] pb-[60px] text-center">
