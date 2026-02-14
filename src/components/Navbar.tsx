@@ -25,7 +25,6 @@ const Navbar = () => {
     setMobileOpen(false);
   }, [location]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -55,7 +54,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-2.5">
           <div
             className="w-9 h-9 rounded-lg flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #1B2A4A, #2D4A7A)" }}
+            style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
           >
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <circle cx="9" cy="9" r="7" stroke="white" strokeWidth="1.5" />
@@ -63,7 +62,7 @@ const Navbar = () => {
               <line x1="9" y1="2" x2="9" y2="5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </div>
-          <span className="font-display text-[22px] text-foreground">FocusBox</span>
+          <span className="font-display text-[22px] text-foreground" style={{ letterSpacing: "-0.02em" }}>FocusBox</span>
         </Link>
 
         {/* Desktop Links */}
@@ -77,8 +76,7 @@ const Navbar = () => {
             }`;
             const underline = active ? (
               <span
-                className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full"
-                style={{ background: "#E8913A" }}
+                className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-accent"
               />
             ) : null;
 
@@ -99,7 +97,8 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <AnchorLink
           to="/#pricing"
-          className="hidden min-[900px]:inline-flex items-center px-5 py-2.5 rounded-pill bg-primary text-primary-foreground font-body text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0"
+          className="hidden min-[900px]:inline-flex items-center px-5 py-2.5 rounded-pill text-white font-body text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0"
+          style={{ background: "#2563EB", boxShadow: "0 2px 12px rgba(37,99,235,0.2)" }}
         >
           Get Started
         </AnchorLink>
@@ -127,7 +126,7 @@ const Navbar = () => {
                 <AnchorLink
                   key={link.label}
                   to={link.href}
-                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-all duration-200"
+                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-all duration-200 py-[14px]"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -136,7 +135,7 @@ const Navbar = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-all duration-200"
+                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-all duration-200 py-[14px]"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -145,7 +144,8 @@ const Navbar = () => {
             )}
             <AnchorLink
               to="/#pricing"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-pill bg-primary text-primary-foreground font-body text-sm font-semibold mt-2 transition-all duration-200"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-pill text-white font-body text-sm font-semibold mt-2 transition-all duration-200"
+              style={{ background: "#2563EB" }}
               onClick={() => setMobileOpen(false)}
             >
               Get Started

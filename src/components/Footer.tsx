@@ -18,15 +18,15 @@ const companyLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-dark-bg text-white/40">
-      <div className="max-w-[1200px] mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-12">
+    <footer style={{ background: "#0F172A" }} className="text-white/40">
+      <div className="max-w-[1200px] mx-auto px-6 py-16 max-[767px]:py-10">
+        <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-12 max-[767px]:gap-8">
           {/* Brand */}
           <div className="max-w-xs">
             <div className="flex items-center gap-2.5 mb-4">
               <div
                 className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ background: "linear-gradient(135deg, #1B2A4A, #2D4A7A)" }}
+                style={{ background: "rgba(255,255,255,0.08)" }}
               >
                 <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
                   <circle cx="9" cy="9" r="7" stroke="white" strokeWidth="1.5" />
@@ -85,7 +85,7 @@ const Footer = () => {
       <div className="border-t border-white/10">
         <div className="max-w-[1200px] mx-auto px-6 py-5 flex flex-col min-[900px]:flex-row justify-between gap-4 text-xs">
           <span>© {new Date().getFullYear()} FocusBox. All rights reserved.</span>
-          <span className="max-w-md text-right">
+          <span className="max-w-md min-[900px]:text-right">
             FocusBox is not a medical device. Recommendations follow best practices, not clinical advice.
           </span>
         </div>

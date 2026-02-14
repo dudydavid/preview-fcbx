@@ -17,14 +17,14 @@ const HeroSection = () => (
     style={{ background: "var(--gradient-surface)" }}
   >
     {/* Dot grid */}
-    <div className="absolute inset-0 dot-grid opacity-[0.03] pointer-events-none" />
+    <div className="absolute inset-0 dot-grid opacity-[0.02] pointer-events-none" />
 
-    <div className="max-w-[1200px] mx-auto px-6 pt-[100px] pb-20 w-full">
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 pt-[100px] pb-20 w-full">
       <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-12 min-[900px]:gap-20 items-center">
         {/* Left: Text */}
         <div>
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-pill bg-foreground/[0.06] mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-pill mb-8" style={{ background: "rgba(37,99,235,0.06)" }}>
               <span className="w-2 h-2 rounded-full bg-success" />
               <span className="font-body text-[13px] font-semibold text-foreground tracking-wide">
                 NOW ACCEPTING FOUNDING FAMILIES
@@ -39,7 +39,7 @@ const HeroSection = () => (
             >
               Your child's focus
               <br />
-              <span className="text-accent">isn't broken.</span>
+              <span style={{ color: "#2563EB" }}>isn't broken.</span>
               <br />
               It just needs practice.
             </h1>
@@ -57,21 +57,18 @@ const HeroSection = () => (
                 to="/contact"
                 className="inline-flex items-center px-7 py-3.5 rounded-pill text-white font-body text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                 style={{
-                  background: "var(--gradient-accent)",
-                  boxShadow: "var(--shadow-amber)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = "0 12px 40px rgba(232,145,58,0.45)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = "var(--shadow-amber)";
+                  background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
+                  boxShadow: "0 4px 20px rgba(37,99,235,0.3)",
                 }}
               >
                 Join Founding Families — €49
               </Link>
               <a
                 href="/#how-it-works"
-                className="inline-flex items-center px-7 py-3.5 rounded-pill font-body text-sm font-semibold text-foreground border-[1.5px] border-foreground/15 hover:border-foreground/30 transition-colors duration-200"
+                className="inline-flex items-center px-7 py-3.5 rounded-pill font-body text-sm font-semibold text-foreground border-[1.5px] transition-colors duration-200"
+                style={{ borderColor: "#E2E8F0" }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#94A3B8"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#E2E8F0"; }}
               >
                 See How It Works →
               </a>
@@ -79,15 +76,15 @@ const HeroSection = () => (
           </Reveal>
 
           <Reveal delay={400}>
-            <div className="flex flex-wrap gap-8">
+            <div className="flex flex-wrap gap-8 max-[767px]:gap-6">
               {[
                 { num: "100%", label: "Screen-free" },
                 { num: "92%", label: "Gross margin" },
                 { num: "€0", label: "Child data sold" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="font-body text-[22px] font-bold text-foreground">{stat.num}</div>
-                  <div className="font-body text-xs uppercase tracking-wider text-muted-foreground mt-1">
+                  <div className="font-body text-[22px] max-[767px]:text-[18px] font-bold text-foreground">{stat.num}</div>
+                  <div className="font-body text-xs uppercase tracking-wider mt-1" style={{ color: "#94A3B8" }}>
                     {stat.label}
                   </div>
                 </div>
@@ -99,8 +96,8 @@ const HeroSection = () => (
         {/* Right: Image */}
         <Reveal delay={200} className="relative">
           <div
-            className="relative rounded-[32px] overflow-hidden shadow-heavy"
-            style={{ aspectRatio: "4/5" }}
+            className="relative rounded-[32px] max-[767px]:rounded-[20px] overflow-hidden"
+            style={{ aspectRatio: "4/5", boxShadow: "0 32px 80px rgba(15,23,42,0.12)" }}
           >
             <img
               src="/placeholder.svg"
@@ -123,10 +120,10 @@ const HeroSection = () => (
             </div>
           </div>
 
-          {/* Floating notification */}
-          <div className="absolute -top-4 -right-4 min-[900px]:-right-8 bg-card rounded-[20px] shadow-heavy p-4 flex items-center gap-3 animate-float">
-            <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-              <CheckCircle size={20} className="text-accent" />
+          {/* Floating notification - hidden on mobile */}
+          <div className="hidden min-[768px]:flex absolute -top-4 -right-4 min-[900px]:-right-8 bg-card rounded-[20px] shadow-heavy p-4 items-center gap-3 animate-float">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(37,99,235,0.1)" }}>
+              <CheckCircle size={20} style={{ color: "#2563EB" }} />
             </div>
             <div>
               <div className="font-body text-sm font-semibold text-foreground">Session Complete!</div>
@@ -140,13 +137,13 @@ const HeroSection = () => (
 );
 
 const ProblemSection = () => (
-  <section className="relative bg-primary py-24 min-[900px]:py-32 overflow-hidden">
+  <section className="relative py-24 min-[900px]:py-32 max-[767px]:py-16 overflow-hidden" style={{ background: "linear-gradient(135deg, #0F172A, #1E293B)" }}>
     {/* Dot grid */}
-    <div className="absolute inset-0 dot-grid-light opacity-[0.04] pointer-events-none" />
+    <div className="absolute inset-0 dot-grid-light opacity-[0.03] pointer-events-none" />
 
-    <div className="max-w-[720px] mx-auto px-6 text-center relative z-10">
+    <div className="max-w-[720px] mx-auto px-6 max-[767px]:px-5 text-center relative z-10">
       <Reveal>
-        <span className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em]">
+        <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#F59E0B" }}>
           THE PROBLEM NO ONE TALKS ABOUT
         </span>
       </Reveal>
@@ -163,20 +160,20 @@ const ProblemSection = () => (
       </Reveal>
 
       <Reveal delay={200}>
-        <p className="font-body text-lg text-white/70 leading-relaxed mb-16">
+        <p className="font-body text-lg max-[767px]:text-[15px] text-white/70 leading-relaxed mb-16 max-[767px]:mb-10">
           The homework battles. The "just five more minutes" that never comes. The heartbreak of watching your bright, capable child struggle to sit still long enough to finish a single page. You know they can do it. They know it too. They just can't seem to start — and when they do, they can't hold on.
         </p>
       </Reveal>
 
-      <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-5 mb-16">
+      <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-5 max-[767px]:gap-4 mb-16 max-[767px]:mb-10">
         {[
           { num: "1 in 4", desc: "schools report severe student inattention impacting learning" },
           { num: "6%+", desc: "of school-age children face attention and executive function challenges" },
           { num: "73%", desc: "of parents seek non-medication solutions first" },
         ].map((stat, i) => (
           <Reveal key={stat.num} delay={300 + i * 100}>
-            <div className="bg-white/5 border border-white/[0.08] rounded-[20px] p-8">
-              <div className="font-body text-4xl font-bold text-accent mb-3">{stat.num}</div>
+            <div className="rounded-[20px] p-8 max-[767px]:p-6" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="font-body text-4xl max-[767px]:text-3xl font-bold mb-3" style={{ color: "#60A5FA" }}>{stat.num}</div>
               <div className="font-body text-sm text-white/60 leading-relaxed">{stat.desc}</div>
             </div>
           </Reveal>
@@ -185,7 +182,7 @@ const ProblemSection = () => (
 
       <Reveal delay={600}>
         <blockquote className="max-w-lg mx-auto">
-          <p className="font-display italic text-2xl text-white/90 leading-relaxed mb-4">
+          <p className="font-body text-2xl max-[767px]:text-xl italic font-medium text-white/90 leading-relaxed mb-4">
             "I just want someone to tell me it's going to be okay — and then show me exactly how."
           </p>
           <cite className="font-body text-sm text-white/40 not-italic">

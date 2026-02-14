@@ -37,11 +37,11 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 min-[900px]:py-32 bg-card">
-      <div className="max-w-[720px] mx-auto px-6">
-        <div className="text-center mb-16">
+    <section id="faq" className="py-24 min-[900px]:py-32 max-[767px]:py-16 bg-white">
+      <div className="max-w-[720px] mx-auto px-6 max-[767px]:px-5">
+        <div className="text-center mb-16 max-[767px]:mb-10">
           <Reveal>
-            <span className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em]">
+            <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
               FREQUENTLY ASKED QUESTIONS
             </span>
           </Reveal>
@@ -62,19 +62,20 @@ const FAQSection = () => {
               <Reveal key={i} delay={200 + i * 60}>
                 <div
                   className="border-b"
-                  style={{ borderColor: "rgba(27,42,74,0.08)" }}
+                  style={{ borderColor: "#E2E8F0" }}
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     className="w-full flex items-center justify-between py-5 text-left gap-4"
                   >
-                    <span className="font-body text-[17px] font-semibold text-foreground">
+                    <span className="font-body text-[17px] max-[767px]:text-[16px] font-semibold text-foreground">
                       {faq.q}
                     </span>
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                        isOpen ? "bg-primary" : "bg-background"
+                        isOpen ? "" : ""
                       }`}
+                      style={{ background: isOpen ? "#0F172A" : "#F1F5F9" }}
                     >
                       <Plus
                         size={16}

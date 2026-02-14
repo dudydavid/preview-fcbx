@@ -9,24 +9,23 @@ import {
   Cpu,
   ShieldCheck,
   Users,
-  CircleDot,
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  SECTION 1 — HERO                                                  */
 /* ------------------------------------------------------------------ */
 const HeroSection = () => (
-  <section className="relative overflow-hidden" style={{ background: "#1B2A4A" }}>
+  <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0F172A, #1E293B)" }}>
     <div
       className="absolute inset-0 pointer-events-none"
       style={{
         background:
-          "radial-gradient(ellipse at 60% 0%, rgba(232,145,58,0.10), transparent 60%)",
+          "radial-gradient(ellipse at 60% 0%, rgba(37,99,235,0.10), transparent 60%)",
       }}
     />
-    <div className="max-w-[800px] mx-auto px-6 pt-[140px] pb-24 text-center relative z-10">
+    <div className="max-w-[800px] mx-auto px-6 max-[767px]:px-5 pt-[140px] pb-24 max-[767px]:pb-16 text-center relative z-10">
       <Reveal>
-        <p className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em] mb-6">
+        <p className="font-body text-[13px] font-semibold uppercase tracking-[0.08em] mb-6" style={{ color: "#F59E0B" }}>
           INVESTOR OVERVIEW
         </p>
       </Reveal>
@@ -44,7 +43,7 @@ const HeroSection = () => (
         </h1>
       </Reveal>
       <Reveal delay={160}>
-        <p className="font-body text-lg max-w-[600px] mx-auto leading-relaxed mb-10" style={{ color: "rgba(255,255,255,0.65)" }}>
+        <p className="font-body text-lg max-[767px]:text-[15px] max-w-[600px] mx-auto leading-relaxed mb-10" style={{ color: "rgba(255,255,255,0.65)" }}>
           FocusBox is building the first integrated hardware + software + AI coaching platform for children's focus training. Unit-profitable from day one. Launching with a controlled pilot cohort in Q1 2026.
         </p>
       </Reveal>
@@ -52,7 +51,8 @@ const HeroSection = () => (
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href="mailto:invest@focusbox.io"
-            className="inline-flex items-center px-8 py-4 rounded-pill bg-accent text-accent-foreground font-body text-sm font-bold shadow-amber transition-all duration-200 hover:-translate-y-0.5"
+            className="inline-flex items-center px-8 py-4 rounded-pill text-white font-body text-sm font-bold transition-all duration-200 hover:-translate-y-0.5"
+            style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)", boxShadow: "0 4px 20px rgba(37,99,235,0.3)" }}
           >
             Request Full Investor Brief
           </a>
@@ -81,23 +81,23 @@ const metrics = [
 ];
 
 const MetricsSection = () => (
-  <section className="py-20 min-[900px]:py-24 bg-secondary">
-    <div className="max-w-[960px] mx-auto px-6">
+  <section className="py-20 min-[900px]:py-24 max-[767px]:py-14" style={{ background: "#F8FAFC" }}>
+    <div className="max-w-[960px] mx-auto px-6 max-[767px]:px-5">
       <Reveal>
-        <p className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em] text-center mb-3">
+        <p className="font-body text-[13px] font-semibold uppercase tracking-[0.08em] text-center mb-3" style={{ color: "#2563EB" }}>
           THE NUMBERS
         </p>
       </Reveal>
       <Reveal delay={60}>
-        <h2 className="font-display text-foreground text-center mb-14" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
+        <h2 className="font-display text-foreground text-center mb-14 max-[767px]:mb-10" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
           Unit economics that work from unit one.
         </h2>
       </Reveal>
       <div className="grid grid-cols-2 min-[900px]:grid-cols-3 gap-5">
         {metrics.map((m, i) => (
           <Reveal key={m.num + i} delay={100 + i * 70}>
-            <div className="bg-card rounded-[20px] p-8 text-center shadow-card">
-              <div className="font-body text-[32px] font-extrabold text-foreground">{m.num}</div>
+            <div className="bg-white rounded-[20px] p-8 max-[767px]:p-5 text-center shadow-card">
+              <div className="font-body text-[32px] max-[767px]:text-[24px] font-extrabold text-foreground">{m.num}</div>
               <div className="font-body text-[13px] text-muted-foreground mt-2">{m.label}</div>
             </div>
           </Reveal>
@@ -126,21 +126,20 @@ const marketBlocks = [
 ];
 
 const MarketSection = () => (
-  <section className="py-20 min-[900px]:py-24 bg-background">
-    <div className="max-w-[960px] mx-auto px-6">
+  <section className="py-20 min-[900px]:py-24 max-[767px]:py-14 bg-white">
+    <div className="max-w-[960px] mx-auto px-6 max-[767px]:px-5">
       <Reveal>
-        <p className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em] text-center mb-3">
+        <p className="font-body text-[13px] font-semibold uppercase tracking-[0.08em] text-center mb-3" style={{ color: "#2563EB" }}>
           THE OPPORTUNITY
         </p>
       </Reveal>
       <Reveal delay={60}>
-        <h2 className="font-display text-foreground text-center mb-14" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
+        <h2 className="font-display text-foreground text-center mb-14 max-[767px]:mb-10" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
           A massive, underserved market.
         </h2>
       </Reveal>
 
       <div className="grid min-[900px]:grid-cols-2 gap-12 items-start">
-        {/* Left — text */}
         <div className="flex flex-col gap-6">
           {marketBlocks.map((b, i) => (
             <Reveal key={b.title} delay={100 + i * 80}>
@@ -152,11 +151,9 @@ const MarketSection = () => (
           ))}
         </div>
 
-        {/* Right — TAM visual */}
         <Reveal delay={300}>
-          <div className="bg-secondary rounded-[24px] p-10">
+          <div className="rounded-[24px] p-10 max-[767px]:p-6" style={{ background: "#F8FAFC" }}>
             <div className="flex flex-col items-center gap-0">
-              {/* Concentric rounded rects */}
               <div className="relative w-full max-w-[320px] aspect-square flex items-center justify-center">
                 <div className="absolute inset-0 rounded-[28px] border-2 border-foreground/10 flex items-start justify-center pt-4">
                   <span className="font-body text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">TAM</span>
@@ -164,8 +161,8 @@ const MarketSection = () => (
                 <div className="absolute inset-[18%] rounded-[22px] border-2 border-foreground/15 flex items-start justify-center pt-4">
                   <span className="font-body text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">SAM</span>
                 </div>
-                <div className="absolute inset-[36%] rounded-[16px] bg-accent/10 border-2 border-accent/30 flex items-center justify-center">
-                  <span className="font-body text-[12px] font-bold text-accent uppercase tracking-wider">SOM</span>
+                <div className="absolute inset-[36%] rounded-[16px] flex items-center justify-center" style={{ background: "rgba(37,99,235,0.1)", border: "2px solid rgba(37,99,235,0.3)" }}>
+                  <span className="font-body text-[12px] font-bold uppercase tracking-wider" style={{ color: "#2563EB" }}>SOM</span>
                 </div>
               </div>
             </div>
@@ -196,33 +193,35 @@ const compRows: { factor: string; fb: CellVal; analog: CellVal; wearable: CellVa
 ];
 
 const CellIcon = ({ v }: { v: CellVal }) => {
-  if (v === "yes") return <CheckCircle size={18} className="text-success mx-auto" />;
-  if (v === "no") return <XCircle size={18} className="text-destructive mx-auto" />;
-  if (v === "partial") return <MinusCircle size={18} className="text-accent mx-auto" />;
+  if (v === "yes") return <CheckCircle size={18} style={{ color: "#10B981" }} className="mx-auto" />;
+  if (v === "no") return <XCircle size={18} style={{ color: "#EF4444" }} className="mx-auto" />;
+  if (v === "partial") return <MinusCircle size={18} style={{ color: "#F59E0B" }} className="mx-auto" />;
   return <MinusCircle size={18} className="text-muted-foreground/40 mx-auto" />;
 };
 
 const CompetitiveSection = () => (
-  <section className="py-20 min-[900px]:py-24 bg-secondary">
-    <div className="max-w-[1000px] mx-auto px-6">
+  <section className="py-20 min-[900px]:py-24 max-[767px]:py-14" style={{ background: "#F8FAFC" }}>
+    <div className="max-w-[1000px] mx-auto px-6 max-[767px]:px-5">
       <Reveal>
-        <p className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em] text-center mb-3">
+        <p className="font-body text-[13px] font-semibold uppercase tracking-[0.08em] text-center mb-3" style={{ color: "#2563EB" }}>
           COMPETITIVE LANDSCAPE
         </p>
       </Reveal>
       <Reveal delay={60}>
-        <h2 className="font-display text-foreground text-center mb-14" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
+        <h2 className="font-display text-foreground text-center mb-14 max-[767px]:mb-10" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
           No one owns this intersection.
         </h2>
       </Reveal>
+      {/* Mobile scroll hint */}
+      <p className="min-[768px]:hidden font-body text-[13px] text-muted-foreground text-center mb-3">← Scroll →</p>
       <Reveal delay={140}>
-        <div className="bg-card rounded-[24px] shadow-card overflow-hidden">
-          <div className="overflow-x-auto">
+        <div className="bg-white rounded-[24px] shadow-card overflow-hidden">
+          <div className="overflow-x-auto" style={{ WebkitOverflowScrolling: "touch" }}>
             <table className="w-full min-w-[640px] text-sm">
               <thead>
-                <tr style={{ background: "#1B2A4A" }}>
+                <tr style={{ background: "#0F172A" }}>
                   <th className="text-left px-5 py-4 font-body text-[13px] font-semibold uppercase text-white/80 tracking-wide">Factor</th>
-                  <th className="px-5 py-4 font-body text-[13px] font-semibold uppercase text-accent tracking-wide text-center border-l-2 border-accent/30">FocusBox</th>
+                  <th className="px-5 py-4 font-body text-[13px] font-semibold uppercase tracking-wide text-center" style={{ color: "#60A5FA", borderLeft: "2px solid rgba(37,99,235,0.3)" }}>FocusBox</th>
                   <th className="px-5 py-4 font-body text-[13px] font-semibold uppercase text-white/60 tracking-wide text-center">Analog Timers</th>
                   <th className="px-5 py-4 font-body text-[13px] font-semibold uppercase text-white/60 tracking-wide text-center">Wearables</th>
                   <th className="px-5 py-4 font-body text-[13px] font-semibold uppercase text-white/60 tracking-wide text-center">Focus Apps</th>
@@ -230,9 +229,9 @@ const CompetitiveSection = () => (
               </thead>
               <tbody>
                 {compRows.map((r, i) => (
-                  <tr key={r.factor} className={i % 2 === 0 ? "bg-secondary/50" : "bg-card"}>
+                  <tr key={r.factor} className={i % 2 === 0 ? "" : ""} style={{ background: i % 2 === 0 ? "#F8FAFC" : "#FFFFFF" }}>
                     <td className="px-5 py-4 font-body text-[14px] font-medium text-foreground">{r.factor}</td>
-                    <td className="px-5 py-4 text-center border-l-2 border-accent/10">{CellIcon({ v: r.fb })}</td>
+                    <td className="px-5 py-4 text-center" style={{ borderLeft: "2px solid rgba(37,99,235,0.1)" }}>{CellIcon({ v: r.fb })}</td>
                     <td className="px-5 py-4 text-center">{CellIcon({ v: r.analog })}</td>
                     <td className="px-5 py-4 text-center">{CellIcon({ v: r.wearable })}</td>
                     <td className="px-5 py-4 text-center">{CellIcon({ v: r.apps })}</td>
@@ -253,19 +252,19 @@ const CompetitiveSection = () => (
 const moats = [
   {
     icon: Database,
-    gradient: "linear-gradient(135deg, #1B2A4A, #2D4A7A)",
+    gradient: "linear-gradient(135deg, #0F172A, #1E293B)",
     title: "Data Network Effects",
     body: "Every session contributes anonymized focus performance data. More data improves our adaptive engine and AI recommendations. Competitors starting later will never match our dataset depth.",
   },
   {
     icon: Cpu,
-    gradient: "linear-gradient(135deg, #E8913A, #D4782E)",
+    gradient: "linear-gradient(135deg, #2563EB, #1D4ED8)",
     title: "Integrated Hardware + Software",
     body: "A turnkey device-plus-app system is fundamentally harder to replicate than either component alone. The device prevents distraction in ways no app can. The app delivers intelligence no timer can.",
   },
   {
     icon: ShieldCheck,
-    gradient: "linear-gradient(135deg, #48BB78, #38A169)",
+    gradient: "linear-gradient(135deg, #10B981, #059669)",
     title: "Trust & Privacy Architecture",
     body: "Our alias-only, zero-child-PII architecture is a structural advantage in an era of increasing data regulation. Parents choose us because we're safe. Regulators leave us alone because we're compliant by design.",
   },
@@ -278,22 +277,22 @@ const moats = [
 ];
 
 const MoatSection = () => (
-  <section className="py-20 min-[900px]:py-24 bg-background">
-    <div className="max-w-[900px] mx-auto px-6">
+  <section className="py-20 min-[900px]:py-24 max-[767px]:py-14 bg-white">
+    <div className="max-w-[900px] mx-auto px-6 max-[767px]:px-5">
       <Reveal>
-        <p className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em] text-center mb-3">
+        <p className="font-body text-[13px] font-semibold uppercase tracking-[0.08em] text-center mb-3" style={{ color: "#2563EB" }}>
           THE MOAT
         </p>
       </Reveal>
       <Reveal delay={60}>
-        <h2 className="font-display text-foreground text-center mb-14" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
+        <h2 className="font-display text-foreground text-center mb-14 max-[767px]:mb-10" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
           Four layers of defensibility.
         </h2>
       </Reveal>
       <div className="grid min-[768px]:grid-cols-2 gap-5">
         {moats.map((m, i) => (
           <Reveal key={m.title} delay={100 + i * 80}>
-            <div className="bg-card rounded-[24px] p-9 border border-border h-full">
+            <div className="bg-white rounded-[24px] p-9 max-[767px]:p-6 h-full" style={{ border: "1px solid #E2E8F0" }}>
               <div
                 className="w-14 h-14 rounded-[14px] flex items-center justify-center mb-5"
                 style={{ background: m.gradient }}
@@ -332,45 +331,41 @@ const phases = [
 ];
 
 const RoadmapSection = () => (
-  <section className="py-20 min-[900px]:py-24 bg-secondary">
-    <div className="max-w-[960px] mx-auto px-6">
+  <section className="py-20 min-[900px]:py-24 max-[767px]:py-14" style={{ background: "#F8FAFC" }}>
+    <div className="max-w-[960px] mx-auto px-6 max-[767px]:px-5">
       <Reveal>
-        <p className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em] text-center mb-3">
+        <p className="font-body text-[13px] font-semibold uppercase tracking-[0.08em] text-center mb-3" style={{ color: "#2563EB" }}>
           ROADMAP
         </p>
       </Reveal>
       <Reveal delay={60}>
-        <h2 className="font-display text-foreground text-center mb-14" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
+        <h2 className="font-display text-foreground text-center mb-14 max-[767px]:mb-10" style={{ fontSize: "clamp(28px, 4vw, 44px)" }}>
           Where we are. Where we're going.
         </h2>
       </Reveal>
 
-      {/* Desktop: horizontal, Mobile: vertical */}
       <div className="flex flex-col min-[900px]:flex-row gap-0 items-stretch">
         {phases.map((p, i) => (
           <Reveal key={p.label} delay={120 + i * 100} className="flex-1 flex flex-col min-[900px]:flex-row items-stretch">
             <div
-              className={`bg-card rounded-[20px] p-8 flex-1 border-l-[3px] ${
-                p.active ? "border-l-accent" : "border-l-muted"
-              }`}
+              className="bg-white rounded-[20px] p-8 max-[767px]:p-6 flex-1"
+              style={{ borderLeft: `3px solid ${p.active ? "#2563EB" : "#E2E8F0"}` }}
             >
               <p
-                className={`font-body text-[13px] font-bold uppercase tracking-wider mb-3 ${
-                  p.active ? "text-accent" : "text-muted-foreground"
-                }`}
+                className="font-body text-[13px] font-bold uppercase tracking-wider mb-3"
+                style={{ color: p.active ? "#2563EB" : "#94A3B8" }}
               >
                 {p.label}
               </p>
               <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{p.body}</p>
             </div>
-            {/* Connector */}
             {i < phases.length - 1 && (
               <>
                 <div className="hidden min-[900px]:flex items-center justify-center w-8 shrink-0">
-                  <div className="w-8 h-[2px] bg-accent" />
+                  <div className="w-8 h-[2px]" style={{ background: "#2563EB" }} />
                 </div>
                 <div className="flex min-[900px]:hidden items-center justify-center h-6">
-                  <div className="h-6 w-[2px] bg-accent" />
+                  <div className="h-6 w-[2px]" style={{ background: "#2563EB" }} />
                 </div>
               </>
             )}
@@ -386,14 +381,14 @@ const RoadmapSection = () => (
 /* ------------------------------------------------------------------ */
 const InvestorCTA = () => (
   <section
-    className="relative py-24 min-[900px]:py-28 overflow-hidden"
-    style={{ background: "linear-gradient(135deg, #1B2A4A, #0F1A30)" }}
+    className="relative py-24 min-[900px]:py-28 max-[767px]:py-16 overflow-hidden"
+    style={{ background: "linear-gradient(135deg, #0F172A, #1E293B)" }}
   >
     <div
       className="absolute inset-0 pointer-events-none"
-      style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(232,145,58,0.12), transparent 60%)" }}
+      style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.1), transparent 60%)" }}
     />
-    <div className="max-w-[720px] mx-auto px-6 text-center relative z-10">
+    <div className="max-w-[720px] mx-auto px-6 max-[767px]:px-5 text-center relative z-10">
       <Reveal>
         <h2 className="font-display text-white mb-6" style={{ fontSize: "clamp(32px, 5vw, 52px)", lineHeight: 1.12 }}>
           We're raising to own the category.
@@ -405,7 +400,8 @@ const InvestorCTA = () => (
         <div className="flex flex-wrap justify-center gap-4 mb-6">
           <a
             href="mailto:invest@focusbox.io"
-            className="inline-flex items-center px-8 py-4 rounded-pill bg-accent text-accent-foreground font-body text-sm font-bold shadow-amber transition-all duration-200 hover:-translate-y-0.5"
+            className="inline-flex items-center px-8 py-4 rounded-pill text-white font-body text-sm font-bold transition-all duration-200 hover:-translate-y-0.5"
+            style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)", boxShadow: "0 4px 20px rgba(37,99,235,0.3)" }}
           >
             Request Investor Brief
           </a>
