@@ -11,7 +11,6 @@ import FAQSection from "@/components/sections/FAQSection";
 import FinalCTASection from "@/components/sections/FinalCTASection";
 import InvestorStripSection from "@/components/sections/InvestorStripSection";
 import ReflexDemo from "@/components/sections/ReflexDemo";
-import RecoveryChart from "@/components/sections/RecoveryChart";
 import AntiCheatSection from "@/components/sections/AntiCheatSection";
 import FounderStorySection from "@/components/sections/FounderStorySection";
 import TypologyDashboard from "@/components/sections/TypologyDashboard";
@@ -234,9 +233,8 @@ const Index = () => {
       <ProblemSection />
       <SolutionSection />
       <ReflexDemo />
-      <RecoveryChart />
-      <AntiCheatSection />
       <TypologyDashboard />
+      <AntiCheatSection />
       <HowItWorksSection />
       <FeaturesSection />
       <FounderStorySection />
