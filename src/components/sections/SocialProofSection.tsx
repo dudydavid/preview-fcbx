@@ -20,11 +20,11 @@ const testimonials = [
 ];
 
 const SocialProofSection = () => (
-  <section className="py-24 min-[900px]:py-32 bg-card">
-    <div className="max-w-[1200px] mx-auto px-6">
-      <div className="max-w-[680px] mx-auto text-center mb-16">
+  <section className="py-24 min-[900px]:py-32 max-[767px]:py-16 bg-white">
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5">
+      <div className="max-w-[680px] mx-auto text-center mb-16 max-[767px]:mb-10">
         <Reveal>
-          <span className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em]">
+          <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
             FROM OUR FOUNDING FAMILIES
           </span>
         </Reveal>
@@ -41,13 +41,13 @@ const SocialProofSection = () => (
       <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
           <Reveal key={t.name} delay={200 + i * 100}>
-            <div className="bg-background rounded-card p-9 flex flex-col h-full">
+            <div className="rounded-card p-9 max-[767px]:p-6 flex flex-col h-full" style={{ background: "#F8FAFC" }}>
               <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={18} fill="#E8913A" stroke="none" />
+                  <Star key={j} size={18} fill="#F59E0B" stroke="none" />
                 ))}
               </div>
-              <p className="font-body text-base italic text-foreground leading-relaxed flex-1 mb-6">
+              <p className="font-body text-base italic font-medium text-foreground leading-relaxed flex-1 mb-6">
                 "{t.quote}"
               </p>
               <div>

@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import { Shield, Lightbulb, TrendingUp } from "lucide-react";
 
 const AboutHero = () => (
-  <section className="pt-[72px] bg-background">
-    <div className="max-w-[1200px] mx-auto px-6 py-20 min-[900px]:py-28">
+  <section className="pt-[72px]" style={{ background: "#F8FAFC" }}>
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 py-20 min-[900px]:py-28 max-[767px]:py-14">
       <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-12 min-[900px]:gap-20 items-center">
         <div>
           <Reveal>
-            <span className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em]">
+            <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
               OUR STORY
             </span>
           </Reveal>
@@ -22,7 +22,7 @@ const AboutHero = () => (
             </h1>
           </Reveal>
           <Reveal delay={200}>
-            <p className="font-body text-[17px] text-muted-foreground leading-[1.7] max-w-[520px]">
+            <p className="font-body text-[17px] max-[767px]:text-[15px] text-muted-foreground leading-[1.7] max-w-[520px]">
               FocusBox was created by a team of student founders who grew up struggling with focus. We know what it feels like to stare at a textbook for an hour and absorb nothing. We know the frustration our parents felt watching us fall behind — not because we weren't smart enough, but because we couldn't sit still long enough.
               <br /><br />
               We built the tool we wish we'd had as kids. And we built the dashboard our parents deserved.
@@ -30,7 +30,7 @@ const AboutHero = () => (
           </Reveal>
         </div>
         <Reveal delay={300}>
-          <div className="rounded-[28px] overflow-hidden shadow-heavy" style={{ aspectRatio: "4/3" }}>
+          <div className="rounded-[28px] max-[767px]:rounded-[20px] overflow-hidden shadow-heavy" style={{ aspectRatio: "4/3" }}>
             <img src="/placeholder.svg" alt="FocusBox team" className="w-full h-full object-cover" loading="lazy" width="600" height="450" />
           </div>
         </Reveal>
@@ -40,11 +40,11 @@ const AboutHero = () => (
 );
 
 const MissionSection = () => (
-  <section style={{ background: "#1B2A4A" }}>
-    <div className="max-w-[800px] mx-auto px-6 py-20 min-[900px]:py-[80px] text-center">
+  <section style={{ background: "#0F172A" }}>
+    <div className="max-w-[800px] mx-auto px-6 max-[767px]:px-5 py-20 min-[900px]:py-[80px] max-[767px]:py-14 text-center">
       <Reveal>
         <p
-          className="font-display italic text-white leading-[1.4]"
+          className="font-body italic font-medium text-white leading-[1.4]"
           style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}
         >
           "Every child deserves to discover what they're capable of when distractions disappear. Our mission is to make focus a skill any child can build — without medication, without screens, and without shame."
@@ -60,30 +60,30 @@ const MissionSection = () => (
 const valuesData = [
   {
     Icon: Shield,
-    gradient: "linear-gradient(135deg, #1B2A4A, #2D4A7A)",
+    gradient: "linear-gradient(135deg, #0F172A, #1E293B)",
     title: "Privacy Is Non-Negotiable",
     body: "Zero child personal data. Everything runs on aliases. GDPR-ready from day one. Your family's information is never sold, shared, or compromised. Not now. Not ever.",
   },
   {
     Icon: Lightbulb,
-    gradient: "linear-gradient(135deg, #E8913A, #D4782E)",
+    gradient: "linear-gradient(135deg, #2563EB, #1D4ED8)",
     title: "Screen-Free by Design",
     body: "We believe the solution to digital distraction can't be another screen. FocusBox is a physical device — tactile, simple, and impossible to get distracted on. The phone stays in the parent's hands.",
   },
   {
     Icon: TrendingUp,
-    gradient: "linear-gradient(135deg, #48BB78, #38A169)",
+    gradient: "linear-gradient(135deg, #10B981, #059669)",
     title: "Progress Over Perfection",
     body: "We don't chase perfect sessions. We celebrate showing up. Our entire system is designed around small, consistent improvements — because that's how real habits form and real confidence builds.",
   },
 ];
 
 const ValuesSection = () => (
-  <section className="py-24 min-[900px]:py-32 bg-card">
-    <div className="max-w-[1200px] mx-auto px-6">
-      <div className="max-w-[680px] mx-auto text-center mb-16">
+  <section className="py-24 min-[900px]:py-32 max-[767px]:py-16 bg-white">
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5">
+      <div className="max-w-[680px] mx-auto text-center mb-16 max-[767px]:mb-10">
         <Reveal>
-          <span className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em]">
+          <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
             WHAT WE BELIEVE
           </span>
         </Reveal>
@@ -96,7 +96,7 @@ const ValuesSection = () => (
       <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-6">
         {valuesData.map((v, i) => (
           <Reveal key={v.title} delay={200 + i * 100}>
-            <div className="bg-card border border-border rounded-card p-9 h-full">
+            <div className="bg-white rounded-card p-9 max-[767px]:p-6 h-full" style={{ border: "1px solid #E2E8F0" }}>
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
                 style={{ background: v.gradient }}
@@ -114,11 +114,11 @@ const ValuesSection = () => (
 );
 
 const ApproachSection = () => (
-  <section className="py-24 min-[900px]:py-32 bg-background">
-    <div className="max-w-[1200px] mx-auto px-6">
-      <div className="max-w-[680px] mx-auto text-center mb-16">
+  <section className="py-24 min-[900px]:py-32 max-[767px]:py-16" style={{ background: "#F8FAFC" }}>
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5">
+      <div className="max-w-[680px] mx-auto text-center mb-16 max-[767px]:mb-10">
         <Reveal>
-          <span className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em]">
+          <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
             OUR APPROACH
           </span>
         </Reveal>
@@ -129,16 +129,16 @@ const ApproachSection = () => (
         </Reveal>
       </div>
       <Reveal delay={200}>
-        <div className="max-w-[960px] mx-auto bg-card rounded-[28px] p-10 min-[900px]:p-12 shadow-card border border-border">
+        <div className="max-w-[960px] mx-auto bg-white rounded-[28px] p-10 max-[767px]:p-6 min-[900px]:p-12 shadow-card" style={{ border: "1px solid #E2E8F0" }}>
           <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-10 items-center">
             <div className="space-y-5">
-              <p className="font-body text-base text-muted-foreground leading-[1.7]">
+              <p className="font-body text-base max-[767px]:text-[15px] text-muted-foreground leading-[1.7]">
                 Most focus solutions are either too simple (a dumb timer with no feedback) or too complex (clinical tools that pathologize your child). FocusBox sits in the middle — rigorous enough to deliver real results, simple enough that a 7-year-old can use it independently.
               </p>
-              <p className="font-body text-base text-muted-foreground leading-[1.7]">
+              <p className="font-body text-base max-[767px]:text-[15px] text-muted-foreground leading-[1.7]">
                 The device handles the child's experience: structured sessions, adaptive prompts, built-in breaks. The app handles yours: dashboards, weekly reports, AI-powered coaching plans. Together, they create a feedback loop where improvement is visible, measurable, and motivating.
               </p>
-              <p className="font-body text-base text-muted-foreground leading-[1.7]">
+              <p className="font-body text-base max-[767px]:text-[15px] text-muted-foreground leading-[1.7]">
                 And because the device works completely offline with no internet or child-facing apps, you'll never worry about what your child is exposed to during focus time.
               </p>
             </div>
@@ -159,11 +159,11 @@ const teamMembers = [
 ];
 
 const TeamSection = () => (
-  <section className="py-24 min-[900px]:py-32 bg-card">
-    <div className="max-w-[1200px] mx-auto px-6">
+  <section className="py-24 min-[900px]:py-32 max-[767px]:py-16 bg-white">
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5">
       <div className="max-w-[680px] mx-auto text-center mb-6">
         <Reveal>
-          <span className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em]">
+          <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
             THE TEAM
           </span>
         </Reveal>
@@ -174,7 +174,7 @@ const TeamSection = () => (
         </Reveal>
       </div>
       <Reveal delay={150}>
-        <p className="font-body text-[17px] text-muted-foreground text-center max-w-[640px] mx-auto mb-16 leading-[1.7]">
+        <p className="font-body text-[17px] max-[767px]:text-[15px] text-muted-foreground text-center max-w-[640px] mx-auto mb-16 max-[767px]:mb-10 leading-[1.7]">
           We're student founders who turned a personal pain into a product. We don't have decades of corporate experience — we have something better: we remember exactly what it feels like to be the kid who can't focus.
         </p>
       </Reveal>
@@ -182,11 +182,11 @@ const TeamSection = () => (
         {teamMembers.map((m, i) => (
           <Reveal key={m.name} delay={200 + i * 100}>
             <div className="text-center">
-              <div className="w-[120px] h-[120px] rounded-full border-4 border-background shadow-card overflow-hidden mx-auto mb-5">
+              <div className="w-[120px] h-[120px] rounded-full border-4 shadow-card overflow-hidden mx-auto mb-5" style={{ borderColor: "#F8FAFC" }}>
                 <img src="/placeholder.svg" alt={m.name} className="w-full h-full object-cover" loading="lazy" width="120" height="120" />
               </div>
               <h3 className="font-body text-lg font-bold text-foreground">{m.name}</h3>
-              <p className="font-body text-sm text-accent font-medium">{m.role}</p>
+              <p className="font-body text-sm font-medium" style={{ color: "#2563EB" }}>{m.role}</p>
               <p className="font-body text-sm text-muted-foreground italic mt-1">{m.bio}</p>
             </div>
           </Reveal>
@@ -198,14 +198,14 @@ const TeamSection = () => (
 
 const AboutCTA = () => (
   <section
-    className="relative py-24 min-[900px]:py-28 overflow-hidden"
-    style={{ background: "linear-gradient(135deg, #1B2A4A, #0F1A30)" }}
+    className="relative py-24 min-[900px]:py-28 max-[767px]:py-16 overflow-hidden"
+    style={{ background: "linear-gradient(135deg, #0F172A, #1E293B)" }}
   >
     <div
       className="absolute inset-0 pointer-events-none"
-      style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(232,145,58,0.12), transparent 60%)" }}
+      style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.1), transparent 60%)" }}
     />
-    <div className="max-w-[720px] mx-auto px-6 text-center relative z-10">
+    <div className="max-w-[720px] mx-auto px-6 max-[767px]:px-5 text-center relative z-10">
       <Reveal>
         <h2
           className="font-display text-white mb-6"
@@ -220,8 +220,8 @@ const AboutCTA = () => (
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           <Link
             to="/#pricing"
-            className="inline-flex items-center px-8 py-4 rounded-pill font-body text-sm font-bold shadow-amber transition-all duration-200 hover:-translate-y-0.5 text-white"
-            style={{ background: "linear-gradient(135deg, #E8913A, #D4782E)" }}
+            className="inline-flex items-center px-8 py-4 rounded-pill font-body text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 text-white"
+            style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)", boxShadow: "0 4px 20px rgba(37,99,235,0.3)" }}
           >
             Join as a Founding Family
           </Link>

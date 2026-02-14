@@ -6,11 +6,12 @@ interface AnchorLinkProps {
   className?: string;
   onClick?: () => void;
   children: ReactNode;
+  style?: React.CSSProperties;
 }
 
 const NAVBAR_OFFSET = 80;
 
-const AnchorLink = ({ to, className, onClick, children }: AnchorLinkProps) => {
+const AnchorLink = ({ to, className, onClick, children, style }: AnchorLinkProps) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -40,7 +41,7 @@ const AnchorLink = ({ to, className, onClick, children }: AnchorLinkProps) => {
   };
 
   return (
-    <a href={to} className={className} onClick={handleClick}>
+    <a href={to} className={className} style={style} onClick={handleClick}>
       {children}
     </a>
   );

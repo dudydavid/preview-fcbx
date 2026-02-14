@@ -12,9 +12,9 @@ interface StepCardProps {
 
 const StepCard = ({ step, Icon, title, description, delay }: StepCardProps) => (
   <Reveal delay={delay}>
-    <div className="bg-background rounded-card p-10 min-[900px]:px-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-heavy group h-full">
-      <span className="font-body text-[13px] font-bold text-accent tracking-wide">{step}</span>
-      <div className="w-[52px] h-[52px] rounded-2xl bg-card shadow-card flex items-center justify-center mt-5 mb-5">
+    <div className="rounded-card p-10 max-[767px]:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-heavy group h-full" style={{ background: "#F8FAFC" }}>
+      <span className="font-body text-[13px] font-bold tracking-wide" style={{ color: "#2563EB" }}>{step}</span>
+      <div className="w-[52px] h-[52px] rounded-2xl bg-white shadow-card flex items-center justify-center mt-5 mb-5">
         <Icon size={24} className="text-foreground" />
       </div>
       <h3 className="font-body text-xl font-bold text-foreground mb-3">{title}</h3>
@@ -24,12 +24,12 @@ const StepCard = ({ step, Icon, title, description, delay }: StepCardProps) => (
 );
 
 const HowItWorksSection = () => (
-  <section id="how-it-works" className="py-24 min-[900px]:py-32 bg-card">
-    <div className="max-w-[1200px] mx-auto px-6">
+  <section id="how-it-works" className="py-24 min-[900px]:py-32 max-[767px]:py-16 bg-white">
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5">
       {/* Header */}
-      <div className="max-w-[680px] mx-auto text-center mb-16">
+      <div className="max-w-[680px] mx-auto text-center mb-16 max-[767px]:mb-10">
         <Reveal>
-          <span className="font-body text-[13px] font-semibold text-accent uppercase tracking-[0.1em]">
+          <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
             HOW IT WORKS
           </span>
         </Reveal>

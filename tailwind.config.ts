@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ["'DM Sans'", "sans-serif"],
-        display: ["'Instrument Serif'", "serif"],
+        body: ["'Plus Jakarta Sans'", "sans-serif"],
+        display: ["'Plus Jakarta Sans'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -65,7 +65,8 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        "dark-bg": "#0F1A30",
+        "dark-bg": "#0F172A",
+        "warm-accent": "#F59E0B",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -77,7 +78,7 @@ export default {
       boxShadow: {
         card: "var(--shadow-card)",
         heavy: "var(--shadow-heavy)",
-        amber: "var(--shadow-amber)",
+        blue: "var(--shadow-blue)",
       },
       keyframes: {
         "accordion-down": {
