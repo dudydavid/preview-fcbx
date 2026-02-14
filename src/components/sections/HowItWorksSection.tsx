@@ -12,9 +12,9 @@ interface StepCardProps {
 
 const StepCard = ({ step, Icon, title, description, delay }: StepCardProps) => (
   <Reveal delay={delay}>
-    <div className="rounded-card p-10 max-[767px]:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-heavy group h-full" style={{ background: "#F8FAFC" }}>
-      <span className="font-body text-[13px] font-bold tracking-wide" style={{ color: "#2563EB" }}>{step}</span>
-      <div className="w-[52px] h-[52px] rounded-2xl bg-white shadow-card flex items-center justify-center mt-5 mb-5">
+    <div className="border border-white/10 p-10 max-[767px]:p-6 transition-all duration-300 hover:border-primary/30 group h-full" style={{ background: "rgba(255, 255, 255, 0.02)" }}>
+      <span className="font-mono text-[11px] font-bold tracking-wider text-primary">{step}</span>
+      <div className="w-[52px] h-[52px] border border-white/10 flex items-center justify-center mt-5 mb-5" style={{ background: "rgba(255, 255, 255, 0.03)" }}>
         <Icon size={24} className="text-foreground" />
       </div>
       <h3 className="font-body text-xl font-bold text-foreground mb-3">{title}</h3>
@@ -24,12 +24,13 @@ const StepCard = ({ step, Icon, title, description, delay }: StepCardProps) => (
 );
 
 const HowItWorksSection = () => (
-  <section id="how-it-works" className="py-24 min-[900px]:py-32 max-[767px]:py-16 bg-white">
-    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5">
+  <section id="how-it-works" className="relative py-24 min-[900px]:py-32 max-[767px]:py-16" style={{ background: "#0F172A" }}>
+    <div className="absolute inset-0 blueprint-grid pointer-events-none" />
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 relative">
       {/* Header */}
       <div className="max-w-[680px] mx-auto text-center mb-16 max-[767px]:mb-10">
         <Reveal>
-          <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
+          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
             HOW IT WORKS
           </span>
         </Reveal>

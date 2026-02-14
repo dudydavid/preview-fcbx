@@ -37,11 +37,12 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 min-[900px]:py-32 max-[767px]:py-16 bg-white">
-      <div className="max-w-[720px] mx-auto px-6 max-[767px]:px-5">
+    <section id="faq" className="relative py-24 min-[900px]:py-32 max-[767px]:py-16" style={{ background: "#0F172A" }}>
+      <div className="absolute inset-0 blueprint-grid pointer-events-none" />
+      <div className="max-w-[720px] mx-auto px-6 max-[767px]:px-5 relative">
         <div className="text-center mb-16 max-[767px]:mb-10">
           <Reveal>
-            <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
+            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
               FREQUENTLY ASKED QUESTIONS
             </span>
           </Reveal>
@@ -60,10 +61,7 @@ const FAQSection = () => {
             const isOpen = openIndex === i;
             return (
               <Reveal key={i} delay={200 + i * 60}>
-                <div
-                  className="border-b"
-                  style={{ borderColor: "#E2E8F0" }}
-                >
+                <div className="border-b border-white/10">
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     className="w-full flex items-center justify-between py-5 text-left gap-4"
@@ -72,15 +70,16 @@ const FAQSection = () => {
                       {faq.q}
                     </span>
                     <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                        isOpen ? "" : ""
-                      }`}
-                      style={{ background: isOpen ? "#0F172A" : "#F1F5F9" }}
+                      className="w-8 h-8 border flex items-center justify-center flex-shrink-0 transition-all duration-300"
+                      style={{
+                        background: isOpen ? "rgba(37, 99, 235, 0.2)" : "transparent",
+                        borderColor: isOpen ? "rgba(37, 99, 235, 0.3)" : "rgba(255, 255, 255, 0.1)",
+                      }}
                     >
                       <Plus
                         size={16}
                         className={`transition-all duration-300 ${
-                          isOpen ? "text-white rotate-45" : "text-foreground"
+                          isOpen ? "text-primary rotate-45" : "text-foreground/50"
                         }`}
                         strokeWidth={2.5}
                       />

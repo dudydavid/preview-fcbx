@@ -4,12 +4,13 @@ import { Shield, FileText, Brain, WifiOff, Users, Sparkles } from "lucide-react"
 const privacyTags = ["No child PII", "GDPR-ready", "Alias-only", "Encrypted"];
 
 const FeaturesSection = () => (
-  <section id="features" className="py-24 min-[900px]:py-32 max-[767px]:py-16 overflow-hidden" style={{ background: "#F8FAFC" }}>
-    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5">
+  <section id="features" className="relative py-24 min-[900px]:py-32 max-[767px]:py-16 overflow-hidden" style={{ background: "#172554" }}>
+    <div className="absolute inset-0 blueprint-grid-dense pointer-events-none" />
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 relative">
       {/* Header */}
       <div className="max-w-[680px] mx-auto text-center mb-16 max-[767px]:mb-10">
         <Reveal>
-          <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
+          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
             FEATURES
           </span>
         </Reveal>
@@ -26,42 +27,35 @@ const FeaturesSection = () => (
       </div>
 
       {/* Bento Grid */}
-      <div className="grid grid-cols-1 min-[768px]:grid-cols-12 gap-5">
+      <div className="grid grid-cols-1 min-[768px]:grid-cols-12 gap-[1px]" style={{ background: "rgba(37, 99, 235, 0.1)" }}>
         {/* ROW 1 */}
-        {/* Card A - Dark device card */}
         <Reveal delay={200} className="min-[768px]:col-span-7">
           <div
-            className="relative rounded-[28px] p-10 max-[767px]:p-6 min-h-[360px] max-[767px]:min-h-0 flex flex-col justify-end overflow-hidden"
+            className="relative p-10 max-[767px]:p-6 min-h-[360px] max-[767px]:min-h-0 flex flex-col justify-end overflow-hidden"
             style={{ background: "#0F172A" }}
           >
             <div
               className="absolute top-0 right-0 w-[300px] h-[300px] pointer-events-none"
-              style={{
-                background: "radial-gradient(circle at top right, rgba(37,99,235,0.15), transparent 70%)",
-              }}
+              style={{ background: "radial-gradient(circle at top right, rgba(37,99,235,0.15), transparent 70%)" }}
             />
             <div className="relative z-10">
-              <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#60A5FA" }}>
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary/60">
                 DISTRACTION-FREE DEVICE
               </span>
-              <h3 className="font-display text-[28px] max-[767px]:text-[22px] text-white mt-3 mb-4 leading-tight" style={{ fontWeight: 700 }}>
+              <h3 className="font-display text-[28px] max-[767px]:text-[22px] text-foreground mt-3 mb-4 leading-tight" style={{ fontWeight: 700 }}>
                 Purpose-built hardware that keeps kids on task
               </h3>
-              <p className="font-body text-[15px] text-white/60 leading-relaxed max-w-[420px]">
+              <p className="font-body text-[15px] text-muted-foreground leading-relaxed max-w-[420px]">
                 E-ink display. Tactile buttons. Adaptive prompts that adjust to your child's rhythm. No internet connection. No games. No notifications. Just a calm, guided focus experience.
               </p>
             </div>
           </div>
         </Reveal>
 
-        {/* Card B - Privacy */}
         <Reveal delay={300} className="min-[768px]:col-span-5">
-          <div className="bg-white rounded-[28px] p-10 max-[767px]:p-6 min-h-[360px] max-[767px]:min-h-0 shadow-card flex flex-col" style={{ border: "1px solid #E2E8F0" }}>
-            <div
-              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
-              style={{ background: "linear-gradient(135deg, #10B981, #059669)" }}
-            >
-              <Shield size={26} className="text-white" />
+          <div className="p-10 max-[767px]:p-6 min-h-[360px] max-[767px]:min-h-0 flex flex-col" style={{ background: "#0F172A" }}>
+            <div className="w-14 h-14 border border-success/30 flex items-center justify-center mb-6" style={{ background: "rgba(16, 185, 129, 0.1)" }}>
+              <Shield size={26} className="text-success" />
             </div>
             <h3 className="font-body text-xl font-bold text-foreground mb-3">Privacy by Design</h3>
             <p className="font-body text-[15px] text-muted-foreground leading-relaxed mb-6 flex-1">
@@ -69,11 +63,7 @@ const FeaturesSection = () => (
             </p>
             <div className="flex flex-wrap gap-2">
               {privacyTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1.5 rounded-pill font-body text-xs font-semibold"
-                  style={{ background: "rgba(16,185,129,0.08)", color: "#10B981" }}
-                >
+                <span key={tag} className="px-3 py-1.5 border border-success/20 font-mono text-[10px] font-semibold text-success/70 uppercase tracking-wider">
                   {tag}
                 </span>
               ))}
@@ -82,14 +72,10 @@ const FeaturesSection = () => (
         </Reveal>
 
         {/* ROW 2 */}
-        {/* Card C - Reports */}
         <Reveal delay={400} className="min-[768px]:col-span-5">
-          <div className="bg-white rounded-[28px] p-10 max-[767px]:p-6 min-h-[280px] max-[767px]:min-h-0 shadow-card flex flex-col" style={{ border: "1px solid #E2E8F0" }}>
-            <div
-              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
-              style={{ background: "linear-gradient(135deg, #667EEA, #764BA2)" }}
-            >
-              <FileText size={26} className="text-white" />
+          <div className="p-10 max-[767px]:p-6 min-h-[280px] max-[767px]:min-h-0 flex flex-col" style={{ background: "#0F172A" }}>
+            <div className="w-14 h-14 border border-purple-500/30 flex items-center justify-center mb-6" style={{ background: "rgba(102, 126, 234, 0.1)" }}>
+              <FileText size={26} className="text-purple-400" />
             </div>
             <h3 className="font-body text-xl font-bold text-foreground mb-3">Weekly Progress Reports</h3>
             <p className="font-body text-[15px] text-muted-foreground leading-relaxed">
@@ -98,66 +84,39 @@ const FeaturesSection = () => (
           </div>
         </Reveal>
 
-        {/* Card D - Coaching */}
         <Reveal delay={500} className="min-[768px]:col-span-7">
-          <div
-            className="relative rounded-[28px] p-10 max-[767px]:p-6 min-h-[280px] max-[767px]:min-h-0 flex flex-col justify-end overflow-hidden"
-            style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
-          >
-            <div
-              className="absolute -top-12 -right-12 w-[200px] h-[200px] rounded-full pointer-events-none"
-              style={{ background: "rgba(255,255,255,0.08)" }}
-            />
+          <div className="relative p-10 max-[767px]:p-6 min-h-[280px] max-[767px]:min-h-0 flex flex-col justify-end overflow-hidden" style={{ background: "rgba(37, 99, 235, 0.15)" }}>
+            <div className="absolute -top-12 -right-12 w-[200px] h-[200px] rounded-full pointer-events-none" style={{ background: "rgba(37, 99, 235, 0.1)" }} />
             <div className="relative z-10">
-              <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "rgba(255,255,255,0.6)" }}>
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary/60">
                 INTELLIGENT COACHING
               </span>
-              <h3 className="font-display text-[28px] max-[767px]:text-[22px] text-white mt-3 mb-4 leading-tight" style={{ fontWeight: 700 }}>
+              <h3 className="font-display text-[28px] max-[767px]:text-[22px] text-foreground mt-3 mb-4 leading-tight" style={{ fontWeight: 700 }}>
                 Personalized recommendations that evolve with your child
               </h3>
-              <p className="font-body text-[15px] text-white/70 leading-relaxed max-w-[420px]">
+              <p className="font-body text-[15px] text-white/50 leading-relaxed max-w-[420px]">
                 Our AI engine analyzes focus patterns across sessions, generating monthly coaching plans reviewed by child development experts. Suggestions get smarter as your child progresses.
               </p>
             </div>
           </div>
         </Reveal>
 
-        {/* ROW 3 - Three equal cards */}
-        <Reveal delay={600} className="min-[768px]:col-span-4">
-          <div className="bg-white rounded-[28px] p-10 max-[767px]:p-6 min-h-[260px] max-[767px]:min-h-0 shadow-card text-center flex flex-col items-center" style={{ border: "1px solid #E2E8F0" }}>
-            <div className="w-16 h-16 rounded-full flex items-center justify-center mb-5" style={{ background: "#F1F5F9" }}>
-              <WifiOff size={28} className="text-foreground" />
+        {/* ROW 3 */}
+        {[
+          { Icon: WifiOff, title: "Works Offline", desc: "Device stores 7+ days of sessions locally. No internet needed during focus time. Data syncs when ready." },
+          { Icon: Users, title: "Up to 5 Profiles", desc: "One device, multiple children. Each gets their own dashboard, reports, and personalized coaching plan." },
+          { Icon: Sparkles, title: "Adaptive Engine", desc: "Proprietary algorithms adjust session difficulty in real-time based on your child's engagement signals." },
+        ].map((card, i) => (
+          <Reveal key={card.title} delay={600 + i * 100} className="min-[768px]:col-span-4">
+            <div className="p-10 max-[767px]:p-6 min-h-[260px] max-[767px]:min-h-0 text-center flex flex-col items-center" style={{ background: "#0F172A" }}>
+              <div className="w-16 h-16 border border-white/10 flex items-center justify-center mb-5" style={{ background: "rgba(255, 255, 255, 0.03)" }}>
+                <card.Icon size={28} className="text-foreground" />
+              </div>
+              <h3 className="font-body text-xl font-bold text-foreground mb-3">{card.title}</h3>
+              <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{card.desc}</p>
             </div>
-            <h3 className="font-body text-xl font-bold text-foreground mb-3">Works Offline</h3>
-            <p className="font-body text-[15px] text-muted-foreground leading-relaxed">
-              Device stores 7+ days of sessions locally. No internet needed during focus time. Data syncs when ready.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={700} className="min-[768px]:col-span-4">
-          <div className="bg-white rounded-[28px] p-10 max-[767px]:p-6 min-h-[260px] max-[767px]:min-h-0 shadow-card text-center flex flex-col items-center" style={{ border: "1px solid #E2E8F0" }}>
-            <div className="w-16 h-16 rounded-full flex items-center justify-center mb-5" style={{ background: "#F1F5F9" }}>
-              <Users size={28} className="text-foreground" />
-            </div>
-            <h3 className="font-body text-xl font-bold text-foreground mb-3">Up to 5 Profiles</h3>
-            <p className="font-body text-[15px] text-muted-foreground leading-relaxed">
-              One device, multiple children. Each gets their own dashboard, reports, and personalized coaching plan.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={800} className="min-[768px]:col-span-4">
-          <div className="bg-white rounded-[28px] p-10 max-[767px]:p-6 min-h-[260px] max-[767px]:min-h-0 shadow-card text-center flex flex-col items-center" style={{ border: "1px solid #E2E8F0" }}>
-            <div className="w-16 h-16 rounded-full flex items-center justify-center mb-5" style={{ background: "#F1F5F9" }}>
-              <Sparkles size={28} className="text-foreground" />
-            </div>
-            <h3 className="font-body text-xl font-bold text-foreground mb-3">Adaptive Engine</h3>
-            <p className="font-body text-[15px] text-muted-foreground leading-relaxed">
-              Proprietary algorithms adjust session difficulty in real-time based on your child's engagement signals. It meets them where they are.
-            </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        ))}
       </div>
     </div>
   </section>
