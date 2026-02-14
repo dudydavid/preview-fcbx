@@ -1,6 +1,9 @@
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
 import { TrendingUp, CheckCircle } from "lucide-react";
+import SolutionSection from "@/components/sections/SolutionSection";
+import HowItWorksSection from "@/components/sections/HowItWorksSection";
+import FeaturesSection from "@/components/sections/FeaturesSection";
 
 const HeroSection = () => (
   <section
@@ -190,6 +193,9 @@ const Index = () => {
     <>
       <HeroSection />
       <ProblemSection />
+      <SolutionSection />
+      <HowItWorksSection />
+      <FeaturesSection />
     </>
   );
 };
