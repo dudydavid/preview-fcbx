@@ -4,6 +4,11 @@ import { TrendingUp, CheckCircle } from "lucide-react";
 import SolutionSection from "@/components/sections/SolutionSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
+import SocialProofSection from "@/components/sections/SocialProofSection";
+import PricingSection from "@/components/sections/PricingSection";
+import FAQSection from "@/components/sections/FAQSection";
+import FinalCTASection from "@/components/sections/FinalCTASection";
+import InvestorStripSection from "@/components/sections/InvestorStripSection";
 
 const HeroSection = () => (
   <section
@@ -196,6 +201,11 @@ const Index = () => {
       <SolutionSection />
       <HowItWorksSection />
       <FeaturesSection />
+      <SocialProofSection />
+      <PricingSection />
+      <FAQSection />
+      <FinalCTASection />
+      <InvestorStripSection />
     </>
   );
 };
