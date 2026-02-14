@@ -14,6 +14,7 @@ import ReflexDemo from "@/components/sections/ReflexDemo";
 import RecoveryChart from "@/components/sections/RecoveryChart";
 import AntiCheatSection from "@/components/sections/AntiCheatSection";
 import FounderStorySection from "@/components/sections/FounderStorySection";
+import TypologyDashboard from "@/components/sections/TypologyDashboard";
 
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(180deg, #0F172A, #172554)" }}>
@@ -235,6 +236,7 @@ const Index = () => {
       <ReflexDemo />
       <RecoveryChart />
       <AntiCheatSection />
+      <TypologyDashboard />
       <HowItWorksSection />
       <FeaturesSection />
       <FounderStorySection />
