@@ -25,6 +25,23 @@ const Navbar = () => {
     setMobileOpen(false);
   }, [location]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  const isActive = (href: string) => {
+    if (href.startsWith("/#")) return false;
+    return location.pathname === href;
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -51,31 +68,38 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden min-[900px]:flex items-center gap-8">
-          {navLinks.map((link) =>
-            link.type === "anchor" ? (
-              <AnchorLink
-                key={link.label}
-                to={link.href}
-                className="font-body text-sm font-medium text-foreground/70 hover:text-foreground transition-opacity duration-200"
-              >
+          {navLinks.map((link) => {
+            const active = isActive(link.href);
+            const cls = `font-body text-sm font-medium transition-all duration-200 relative ${
+              active
+                ? "text-foreground"
+                : "text-foreground/70 hover:text-foreground"
+            }`;
+            const underline = active ? (
+              <span
+                className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full"
+                style={{ background: "#E8913A" }}
+              />
+            ) : null;
+
+            return link.type === "anchor" ? (
+              <AnchorLink key={link.label} to={link.href} className={cls}>
                 {link.label}
+                {underline}
               </AnchorLink>
             ) : (
-              <Link
-                key={link.label}
-                to={link.href}
-                className="font-body text-sm font-medium text-foreground/70 hover:text-foreground transition-opacity duration-200"
-              >
+              <Link key={link.label} to={link.href} className={cls}>
                 {link.label}
+                {underline}
               </Link>
-            )
-          )}
+            );
+          })}
         </div>
 
         {/* Desktop CTA */}
         <AnchorLink
           to="/#pricing"
-          className="hidden min-[900px]:inline-flex items-center px-5 py-2.5 rounded-pill bg-primary text-primary-foreground font-body text-sm font-semibold hover:opacity-90 transition-opacity"
+          className="hidden min-[900px]:inline-flex items-center px-5 py-2.5 rounded-pill bg-primary text-primary-foreground font-body text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0"
         >
           Get Started
         </AnchorLink>
@@ -91,15 +115,19 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="min-[900px]:hidden glass-nav border-b border-border px-6 pb-6 pt-2">
+      <div
+        className={`min-[900px]:hidden glass-nav border-b border-border overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0 border-b-0"
+        }`}
+      >
+        <div className="px-6 pb-6 pt-2">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) =>
               link.type === "anchor" ? (
                 <AnchorLink
                   key={link.label}
                   to={link.href}
-                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-opacity"
+                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-all duration-200"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -108,7 +136,7 @@ const Navbar = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-opacity"
+                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-all duration-200"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -117,14 +145,14 @@ const Navbar = () => {
             )}
             <AnchorLink
               to="/#pricing"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-pill bg-primary text-primary-foreground font-body text-sm font-semibold mt-2"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-pill bg-primary text-primary-foreground font-body text-sm font-semibold mt-2 transition-all duration-200"
               onClick={() => setMobileOpen(false)}
             >
               Get Started
             </AnchorLink>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

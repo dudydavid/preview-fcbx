@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import PageMeta from "@/components/PageMeta";
 import { Link } from "react-router-dom";
 import { TrendingUp, CheckCircle } from "lucide-react";
 import SolutionSection from "@/components/sections/SolutionSection";
@@ -54,7 +55,7 @@ const HeroSection = () => (
             <div className="flex flex-wrap gap-4 mb-10">
               <Link
                 to="/contact"
-                className="inline-flex items-center px-7 py-3.5 rounded-pill text-white font-body text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5"
+                className="inline-flex items-center px-7 py-3.5 rounded-pill text-white font-body text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
                 style={{
                   background: "var(--gradient-accent)",
                   boxShadow: "var(--shadow-amber)",
@@ -105,6 +106,9 @@ const HeroSection = () => (
               src="/placeholder.svg"
               alt="FocusBox device"
               className="w-full h-full object-cover bg-muted"
+              loading="eager"
+              width="600"
+              height="750"
             />
 
             {/* Bottom glass card */}
@@ -196,6 +200,10 @@ const ProblemSection = () => (
 const Index = () => {
   return (
     <>
+      <PageMeta
+        title="FocusBox — Screen-Free Focus Training for Children"
+        description="A dedicated device and parent app that helps children aged 6-12 build focus through daily practice. Weekly progress reports, AI coaching, and zero screen time. Join the Founding Families."
+      />
       <HeroSection />
       <ProblemSection />
       <SolutionSection />
