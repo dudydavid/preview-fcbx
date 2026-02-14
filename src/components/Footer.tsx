@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import AnchorLink from "./AnchorLink";
 
 const productLinks = [
   { label: "How It Works", href: "/#how-it-works" },
@@ -10,8 +11,9 @@ const productLinks = [
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Investors", href: "/investors" },
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Footer = () => {
@@ -24,9 +26,7 @@ const Footer = () => {
             <div className="flex items-center gap-2.5 mb-4">
               <div
                 className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{
-                  background: "linear-gradient(135deg, #1B2A4A, #2D4A7A)",
-                }}
+                style={{ background: "linear-gradient(135deg, #1B2A4A, #2D4A7A)" }}
               >
                 <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
                   <circle cx="9" cy="9" r="7" stroke="white" strokeWidth="1.5" />
@@ -49,12 +49,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {productLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <AnchorLink
+                    to={link.href}
                     className="text-sm hover:text-white/80 transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </AnchorLink>
                 </li>
               ))}
             </ul>
