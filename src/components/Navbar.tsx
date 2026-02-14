@@ -45,21 +45,18 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "glass-nav border-b border-border shadow-card"
+          ? "glass-nav border-b border-white/10"
           : "bg-transparent"
       }`}
       style={{ height: 72 }}
     >
       <div className="max-w-[1200px] mx-auto px-6 h-full flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
-          <div
-            className="w-9 h-9 rounded-lg flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
-          >
+          <div className="w-9 h-9 border border-primary/50 flex items-center justify-center" style={{ background: "rgba(37, 99, 235, 0.1)" }}>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <circle cx="9" cy="9" r="7" stroke="white" strokeWidth="1.5" />
-              <circle cx="9" cy="9" r="2.5" fill="white" />
-              <line x1="9" y1="2" x2="9" y2="5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="9" cy="9" r="7" stroke="#2563EB" strokeWidth="1.5" />
+              <circle cx="9" cy="9" r="2.5" fill="#2563EB" />
+              <line x1="9" y1="2" x2="9" y2="5" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </div>
           <span className="font-display text-[22px] text-foreground" style={{ letterSpacing: "-0.02em" }}>FocusBox</span>
@@ -69,15 +66,13 @@ const Navbar = () => {
         <div className="hidden min-[900px]:flex items-center gap-8">
           {navLinks.map((link) => {
             const active = isActive(link.href);
-            const cls = `font-body text-sm font-medium transition-all duration-200 relative ${
+            const cls = `font-mono text-[13px] uppercase tracking-wider transition-all duration-200 relative ${
               active
-                ? "text-foreground"
-                : "text-foreground/70 hover:text-foreground"
+                ? "text-primary"
+                : "text-foreground/50 hover:text-foreground"
             }`;
             const underline = active ? (
-              <span
-                className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-accent"
-              />
+              <span className="absolute -bottom-1 left-0 right-0 h-[1px] bg-primary" />
             ) : null;
 
             return link.type === "anchor" ? (
@@ -97,8 +92,7 @@ const Navbar = () => {
         {/* Desktop CTA */}
         <AnchorLink
           to="/#pricing"
-          className="hidden min-[900px]:inline-flex items-center px-5 py-2.5 rounded-pill text-white font-body text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0"
-          style={{ background: "#2563EB", boxShadow: "0 2px 12px rgba(37,99,235,0.2)" }}
+          className="hidden min-[900px]:inline-flex items-center px-5 py-2.5 border border-white/20 text-foreground font-mono text-[12px] uppercase tracking-wider transition-all duration-200 hover:bg-foreground hover:text-background"
         >
           Get Started
         </AnchorLink>
@@ -115,9 +109,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`min-[900px]:hidden glass-nav border-b border-border overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`min-[900px]:hidden border-b border-white/10 overflow-hidden transition-all duration-300 ease-in-out ${
           mobileOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0 border-b-0"
         }`}
+        style={{ background: "rgba(15, 23, 42, 0.95)", backdropFilter: "blur(20px)" }}
       >
         <div className="px-6 pb-6 pt-2">
           <div className="flex flex-col gap-4">
@@ -126,7 +121,7 @@ const Navbar = () => {
                 <AnchorLink
                   key={link.label}
                   to={link.href}
-                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-all duration-200 py-[14px]"
+                  className="font-mono text-[13px] uppercase tracking-wider text-foreground/50 hover:text-foreground transition-all duration-200 py-[14px]"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -135,7 +130,7 @@ const Navbar = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="font-body text-base font-medium text-foreground/70 hover:text-foreground transition-all duration-200 py-[14px]"
+                  className="font-mono text-[13px] uppercase tracking-wider text-foreground/50 hover:text-foreground transition-all duration-200 py-[14px]"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -144,8 +139,7 @@ const Navbar = () => {
             )}
             <AnchorLink
               to="/#pricing"
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-pill text-white font-body text-sm font-semibold mt-2 transition-all duration-200"
-              style={{ background: "#2563EB" }}
+              className="inline-flex items-center justify-center px-5 py-2.5 border border-white/20 text-foreground font-mono text-[12px] uppercase tracking-wider mt-2 transition-all duration-200 hover:bg-foreground hover:text-background"
               onClick={() => setMobileOpen(false)}
             >
               Get Started

@@ -20,11 +20,12 @@ const testimonials = [
 ];
 
 const SocialProofSection = () => (
-  <section className="py-24 min-[900px]:py-32 max-[767px]:py-16 bg-white">
-    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5">
+  <section className="relative py-24 min-[900px]:py-32 max-[767px]:py-16" style={{ background: "#0F172A" }}>
+    <div className="absolute inset-0 blueprint-grid pointer-events-none" />
+    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 relative">
       <div className="max-w-[680px] mx-auto text-center mb-16 max-[767px]:mb-10">
         <Reveal>
-          <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#2563EB" }}>
+          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
             FROM OUR FOUNDING FAMILIES
           </span>
         </Reveal>
@@ -41,18 +42,18 @@ const SocialProofSection = () => (
       <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-6">
         {testimonials.map((t, i) => (
           <Reveal key={t.name} delay={200 + i * 100}>
-            <div className="rounded-card p-9 max-[767px]:p-6 flex flex-col h-full" style={{ background: "#F8FAFC" }}>
+            <div className="border border-white/10 p-9 max-[767px]:p-6 flex flex-col h-full" style={{ background: "rgba(255, 255, 255, 0.02)" }}>
               <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, j) => (
                   <Star key={j} size={18} fill="#F59E0B" stroke="none" />
                 ))}
               </div>
-              <p className="font-body text-base italic font-medium text-foreground leading-relaxed flex-1 mb-6">
+              <p className="font-body text-base italic font-medium text-foreground/80 leading-relaxed flex-1 mb-6">
                 "{t.quote}"
               </p>
               <div>
-                <div className="font-body text-[15px] font-bold text-foreground">{t.name}</div>
-                <div className="font-body text-[13px] text-muted-foreground mt-0.5">{t.role}</div>
+                <div className="font-mono text-[13px] font-bold text-foreground">{t.name}</div>
+                <div className="font-mono text-[11px] text-muted-foreground mt-0.5">{t.role}</div>
               </div>
             </div>
           </Reveal>

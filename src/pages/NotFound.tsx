@@ -6,31 +6,28 @@ const NotFound = () => {
   return (
     <>
       <PageMeta title="Page Not Found — FocusBox" description="The page you're looking for doesn't exist." />
-      <section style={{ background: "#F8FAFC" }} className="min-h-screen flex items-center justify-center">
-        <div className="text-center px-6 py-20">
+      <section className="min-h-screen flex items-center justify-center relative" style={{ background: "#0F172A" }}>
+        <div className="absolute inset-0 blueprint-grid pointer-events-none" />
+        <div className="text-center px-6 py-20 relative">
           <Reveal>
-            <div
-              className="font-display text-[80px] leading-none mb-6 select-none"
-              style={{ color: "#0F172A", opacity: 0.15 }}
-            >
+            <div className="font-mono text-[80px] leading-none mb-6 select-none text-foreground/10">
               404
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="font-display text-[32px] mb-4" style={{ color: "#0F172A" }}>
+            <h1 className="font-display text-[32px] text-foreground mb-4">
               Page not found.
             </h1>
           </Reveal>
           <Reveal delay={200}>
-            <p className="font-body text-[16px] max-[767px]:text-[15px] mb-8 max-w-md mx-auto" style={{ color: "#475569" }}>
+            <p className="font-body text-[16px] max-[767px]:text-[15px] text-muted-foreground mb-8 max-w-md mx-auto">
               Looks like this page wandered off. Let's get you back on track.
             </p>
           </Reveal>
           <Reveal delay={300}>
             <Link
               to="/"
-              className="inline-flex items-center px-7 py-3.5 rounded-pill text-white font-body text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-              style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
+              className="inline-flex items-center px-7 py-3.5 border border-white/20 text-foreground font-mono text-[12px] uppercase tracking-wider transition-all duration-200 hover:bg-foreground hover:text-background"
             >
               Back to Home →
             </Link>

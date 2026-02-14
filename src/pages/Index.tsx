@@ -10,23 +10,23 @@ import PricingSection from "@/components/sections/PricingSection";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTASection from "@/components/sections/FinalCTASection";
 import InvestorStripSection from "@/components/sections/InvestorStripSection";
+import ReflexDemo from "@/components/sections/ReflexDemo";
+import RecoveryChart from "@/components/sections/RecoveryChart";
+import AntiCheatSection from "@/components/sections/AntiCheatSection";
+import FounderStorySection from "@/components/sections/FounderStorySection";
 
 const HeroSection = () => (
-  <section
-    className="relative min-h-screen flex items-center overflow-hidden"
-    style={{ background: "var(--gradient-surface)" }}
-  >
-    {/* Dot grid */}
-    <div className="absolute inset-0 dot-grid opacity-[0.02] pointer-events-none" />
+  <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "linear-gradient(180deg, #0F172A, #172554)" }}>
+    <div className="absolute inset-0 blueprint-grid pointer-events-none" />
 
     <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 pt-[100px] pb-20 w-full">
       <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-12 min-[900px]:gap-20 items-center">
         {/* Left: Text */}
         <div>
           <Reveal>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-pill mb-8" style={{ background: "rgba(37,99,235,0.06)" }}>
-              <span className="w-2 h-2 rounded-full bg-success" />
-              <span className="font-body text-[13px] font-semibold text-foreground tracking-wide">
+            <div className="inline-flex items-center gap-2 px-4 py-2 border border-white/10 mb-8" style={{ background: "rgba(37, 99, 235, 0.06)" }}>
+              <span className="w-2 h-2 rounded-full bg-success" style={{ boxShadow: "0 0 8px rgba(16, 185, 129, 0.5)" }} />
+              <span className="font-mono text-[11px] font-semibold text-foreground tracking-wider uppercase">
                 NOW ACCEPTING FOUNDING FAMILIES
               </span>
             </div>
@@ -37,11 +37,9 @@ const HeroSection = () => (
               className="font-display leading-[1.08] text-foreground mb-6"
               style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
             >
-              Your child's focus
+              Discipline is a muscle.
               <br />
-              <span style={{ color: "#2563EB" }}>isn't broken.</span>
-              <br />
-              It just needs practice.
+              <span className="text-primary">This is the gym.</span>
             </h1>
           </Reveal>
 
@@ -55,20 +53,14 @@ const HeroSection = () => (
             <div className="flex flex-wrap gap-4 mb-10">
               <Link
                 to="/contact"
-                className="inline-flex items-center px-7 py-3.5 rounded-pill text-white font-body text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0"
-                style={{
-                  background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-                  boxShadow: "0 4px 20px rgba(37,99,235,0.3)",
-                }}
+                className="inline-flex items-center px-7 py-3.5 text-foreground font-mono text-[12px] uppercase tracking-wider transition-all duration-200 hover:bg-foreground hover:text-background border border-primary"
+                style={{ background: "rgba(37, 99, 235, 0.15)" }}
               >
                 Join Founding Families — €49
               </Link>
               <a
                 href="/#how-it-works"
-                className="inline-flex items-center px-7 py-3.5 rounded-pill font-body text-sm font-semibold text-foreground border-[1.5px] transition-colors duration-200"
-                style={{ borderColor: "#E2E8F0" }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#94A3B8"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#E2E8F0"; }}
+                className="inline-flex items-center px-7 py-3.5 font-mono text-[12px] uppercase tracking-wider text-foreground/60 border border-white/10 transition-all duration-200 hover:border-white/30 hover:text-foreground"
               >
                 See How It Works →
               </a>
@@ -80,11 +72,11 @@ const HeroSection = () => (
               {[
                 { num: "100%", label: "Screen-free" },
                 { num: "92%", label: "Gross margin" },
-                { num: "€0", label: "Child data sold" },
+                { num: "€0", label: "Data sold" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="font-body text-[22px] max-[767px]:text-[18px] font-bold text-foreground">{stat.num}</div>
-                  <div className="font-body text-xs uppercase tracking-wider mt-1" style={{ color: "#94A3B8" }}>
+                  <div className="font-mono text-[22px] max-[767px]:text-[18px] font-bold text-foreground">{stat.num}</div>
+                  <div className="font-mono text-[10px] uppercase tracking-wider mt-1 text-muted-foreground">
                     {stat.label}
                   </div>
                 </div>
@@ -93,41 +85,78 @@ const HeroSection = () => (
           </Reveal>
         </div>
 
-        {/* Right: Image */}
+        {/* Right: Exploded Device View */}
         <Reveal delay={200} className="relative">
-          <div
-            className="relative rounded-[32px] max-[767px]:rounded-[20px] overflow-hidden"
-            style={{ aspectRatio: "4/5", boxShadow: "0 32px 80px rgba(15,23,42,0.12)" }}
-          >
-            <img
-              src="/placeholder.svg"
-              alt="FocusBox device"
-              className="w-full h-full object-cover bg-muted"
-              loading="eager"
-              width="600"
-              height="750"
-            />
+          <div className="relative border border-white/10" style={{ background: "rgba(15, 23, 42, 0.6)" }}>
+            {/* Corner markers */}
+            <span className="absolute -top-1 -left-1 font-mono text-[10px] text-primary/40">+</span>
+            <span className="absolute -top-1 -right-1 font-mono text-[10px] text-primary/40">+</span>
+            <span className="absolute -bottom-1 -left-1 font-mono text-[10px] text-primary/40">+</span>
+            <span className="absolute -bottom-1 -right-1 font-mono text-[10px] text-primary/40">+</span>
 
-            {/* Bottom glass card */}
-            <div className="absolute bottom-4 left-4 right-4 glass-card rounded-[20px] p-4 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0">
-                <TrendingUp size={20} className="text-success" />
+            <div className="p-6">
+              <div className="font-mono text-[10px] text-primary/40 mb-6 tracking-wider">
+                FOCUSBOX // EXPLODED VIEW // v2.1
               </div>
-              <div>
-                <div className="font-body text-sm font-semibold text-foreground">Weekly Focus Time</div>
-                <div className="font-body text-xs font-medium text-success">↑ 34% improvement in 4 weeks</div>
+
+              {/* Exploded layers */}
+              <div className="space-y-4 py-8">
+                {/* Layer 1: Case */}
+                <div className="animate-float" style={{ animationDelay: "0s" }}>
+                  <div className="border border-white/20 p-4 mx-auto max-w-[280px]" style={{ background: "rgba(37, 99, 235, 0.05)" }}>
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[9px] text-white/30">LAYER_01</span>
+                      <span className="font-mono text-[9px] text-primary/50">POLYCARBONATE SHELL</span>
+                    </div>
+                    <div className="h-8 border border-white/10 mt-2" style={{ background: "linear-gradient(90deg, rgba(37, 99, 235, 0.1), transparent)" }} />
+                  </div>
+                </div>
+
+                {/* Layer 2: PCB */}
+                <div className="animate-float" style={{ animationDelay: "0.5s" }}>
+                  <div className="border border-primary/30 p-4 mx-auto max-w-[260px]" style={{ background: "rgba(37, 99, 235, 0.08)" }}>
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[9px] text-white/30">LAYER_02</span>
+                      <span className="font-mono text-[9px] text-success/50">PCB + MICROCONTROLLER</span>
+                    </div>
+                    <div className="grid grid-cols-4 gap-1 mt-2">
+                      {Array.from({ length: 8 }).map((_, i) => (
+                        <div key={i} className="h-3 border border-primary/20" style={{ background: i % 3 === 0 ? "rgba(37, 99, 235, 0.2)" : "transparent" }} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Layer 3: E-ink Screen */}
+                <div className="animate-float" style={{ animationDelay: "1s" }}>
+                  <div className="border border-white/20 p-4 mx-auto max-w-[240px]" style={{ background: "rgba(255, 255, 255, 0.03)" }}>
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[9px] text-white/30">LAYER_03</span>
+                      <span className="font-mono text-[9px] text-warm-accent/50">E-INK DISPLAY</span>
+                    </div>
+                    <div className="h-12 border border-white/10 mt-2 flex items-center justify-center">
+                      <span className="font-mono text-[16px] text-primary/60" style={{ textShadow: "0 0 10px rgba(37, 99, 235, 0.3)" }}>14:22</span>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
+
+            {/* Bottom info bar */}
+            <div className="border-t border-white/10 px-6 py-3 flex items-center justify-between">
+              <span className="font-mono text-[9px] text-white/20">UNIT_COST: €11.20</span>
+              <span className="font-mono text-[9px] text-success/50">STATUS: PRODUCTION</span>
             </div>
           </div>
 
-          {/* Floating notification - hidden on mobile */}
-          <div className="hidden min-[768px]:flex absolute -top-4 -right-4 min-[900px]:-right-8 bg-card rounded-[20px] shadow-heavy p-4 items-center gap-3 animate-float">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "rgba(37,99,235,0.1)" }}>
-              <CheckCircle size={20} style={{ color: "#2563EB" }} />
+          {/* Floating data card - hidden on mobile */}
+          <div className="hidden min-[768px]:flex absolute -top-4 -right-4 min-[900px]:-right-8 border border-white/10 p-4 items-center gap-3 animate-float" style={{ background: "rgba(15, 23, 42, 0.9)" }}>
+            <div className="w-10 h-10 border border-success/30 flex items-center justify-center flex-shrink-0" style={{ background: "rgba(16, 185, 129, 0.1)" }}>
+              <TrendingUp size={20} className="text-success" />
             </div>
             <div>
-              <div className="font-body text-sm font-semibold text-foreground">Session Complete!</div>
-              <div className="font-body text-xs text-muted-foreground">25 min focused · Great job</div>
+              <div className="font-mono text-[11px] font-semibold text-foreground">+34% FOCUS</div>
+              <div className="font-mono text-[9px] text-success/70">4-week avg improvement</div>
             </div>
           </div>
         </Reveal>
@@ -137,30 +166,29 @@ const HeroSection = () => (
 );
 
 const ProblemSection = () => (
-  <section className="relative py-24 min-[900px]:py-32 max-[767px]:py-16 overflow-hidden" style={{ background: "linear-gradient(135deg, #0F172A, #1E293B)" }}>
-    {/* Dot grid */}
-    <div className="absolute inset-0 dot-grid-light opacity-[0.03] pointer-events-none" />
+  <section className="relative py-24 min-[900px]:py-32 max-[767px]:py-16 overflow-hidden" style={{ background: "#172554" }}>
+    <div className="absolute inset-0 blueprint-grid-dense pointer-events-none" />
 
     <div className="max-w-[720px] mx-auto px-6 max-[767px]:px-5 text-center relative z-10">
       <Reveal>
-        <span className="font-body text-[13px] font-semibold uppercase tracking-[0.08em]" style={{ color: "#F59E0B" }}>
+        <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-warm-accent">
           THE PROBLEM NO ONE TALKS ABOUT
         </span>
       </Reveal>
 
       <Reveal delay={100}>
         <h2
-          className="font-display text-white mt-6 mb-8"
+          className="font-display text-foreground mt-6 mb-8"
           style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: 1.15 }}
         >
           You've tried everything.
           <br />
-          <span className="opacity-50">Nothing sticks.</span>
+          <span className="text-foreground/30">Nothing sticks.</span>
         </h2>
       </Reveal>
 
       <Reveal delay={200}>
-        <p className="font-body text-lg max-[767px]:text-[15px] text-white/70 leading-relaxed mb-16 max-[767px]:mb-10">
+        <p className="font-body text-lg max-[767px]:text-[15px] text-muted-foreground leading-relaxed mb-16 max-[767px]:mb-10">
           The homework battles. The "just five more minutes" that never comes. The heartbreak of watching your bright, capable child struggle to sit still long enough to finish a single page. You know they can do it. They know it too. They just can't seem to start — and when they do, they can't hold on.
         </p>
       </Reveal>
@@ -172,20 +200,20 @@ const ProblemSection = () => (
           { num: "73%", desc: "of parents seek non-medication solutions first" },
         ].map((stat, i) => (
           <Reveal key={stat.num} delay={300 + i * 100}>
-            <div className="rounded-[20px] p-8 max-[767px]:p-6" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}>
-              <div className="font-body text-4xl max-[767px]:text-3xl font-bold mb-3" style={{ color: "#60A5FA" }}>{stat.num}</div>
-              <div className="font-body text-sm text-white/60 leading-relaxed">{stat.desc}</div>
+            <div className="p-8 max-[767px]:p-6 border border-white/10" style={{ background: "rgba(255, 255, 255, 0.02)" }}>
+              <div className="font-mono text-4xl max-[767px]:text-3xl font-bold mb-3 text-primary">{stat.num}</div>
+              <div className="font-body text-sm text-white/40 leading-relaxed">{stat.desc}</div>
             </div>
           </Reveal>
         ))}
       </div>
 
       <Reveal delay={600}>
-        <blockquote className="max-w-lg mx-auto">
-          <p className="font-body text-2xl max-[767px]:text-xl italic font-medium text-white/90 leading-relaxed mb-4">
+        <blockquote className="max-w-lg mx-auto border border-white/10 p-6" style={{ background: "rgba(255, 255, 255, 0.02)" }}>
+          <p className="font-body text-xl max-[767px]:text-lg italic font-medium text-white/80 leading-relaxed mb-4">
             "I just want someone to tell me it's going to be okay — and then show me exactly how."
           </p>
-          <cite className="font-body text-sm text-white/40 not-italic">
+          <cite className="font-mono text-[11px] text-white/30 not-italic uppercase tracking-wider">
             — What every parent tells us
           </cite>
         </blockquote>
@@ -204,8 +232,12 @@ const Index = () => {
       <HeroSection />
       <ProblemSection />
       <SolutionSection />
+      <ReflexDemo />
+      <RecoveryChart />
+      <AntiCheatSection />
       <HowItWorksSection />
       <FeaturesSection />
+      <FounderStorySection />
       <SocialProofSection />
       <PricingSection />
       <FAQSection />
