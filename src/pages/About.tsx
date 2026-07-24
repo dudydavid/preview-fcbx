@@ -1,244 +1,148 @@
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
-import { Link } from "react-router-dom";
-import { Shield, Lightbulb, TrendingUp } from "lucide-react";
+import ImageSlot from "@/components/ImageSlot";
 
-const AboutHero = () => (
-  <section className="pt-[72px] relative" style={{ background: "#0F172A" }}>
-    <div className="absolute inset-0 blueprint-grid pointer-events-none" />
-    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 py-20 min-[900px]:py-28 max-[767px]:py-14 relative">
-      <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-12 min-[900px]:gap-20 items-center">
-        <div>
-          <Reveal>
-            <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">
-              OUR STORY
-            </span>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="font-display text-foreground mt-6 mb-6" style={{ fontSize: "clamp(32px, 5vw, 52px)", lineHeight: 1.12 }}>
-              We built FocusBox because we needed it ourselves.
-            </h1>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="font-body text-[17px] max-[767px]:text-[15px] text-muted-foreground leading-[1.7] max-w-[520px]">
-              FocusBox was created by a team of student founders who grew up struggling with focus. We know what it feels like to stare at a textbook for an hour and absorb nothing. We know the frustration our parents felt watching us fall behind — not because we weren't smart enough, but because we couldn't sit still long enough.
-              <br /><br />
-              We built the tool we wish we'd had as kids. And we built the dashboard our parents deserved.
-            </p>
-          </Reveal>
-        </div>
-        <Reveal delay={300}>
-          <div className="border border-white/10 overflow-hidden relative" style={{ aspectRatio: "4/3" }}>
-            <span className="absolute -top-1 -left-1 font-mono text-[10px] text-primary/40 z-10">+</span>
-            <span className="absolute -top-1 -right-1 font-mono text-[10px] text-primary/40 z-10">+</span>
-            <span className="absolute -bottom-1 -left-1 font-mono text-[10px] text-primary/40 z-10">+</span>
-            <span className="absolute -bottom-1 -right-1 font-mono text-[10px] text-primary/40 z-10">+</span>
-            <img src="/placeholder.svg" alt="FocusBox team" className="w-full h-full object-cover" loading="lazy" width="600" height="450" />
-            <div className="absolute inset-0 scanlines pointer-events-none" />
-          </div>
-        </Reveal>
-      </div>
-    </div>
-  </section>
-);
+interface Beat {
+  date: string;
+  heading: string;
+  body: React.ReactNode;
+  image?: boolean;
+}
 
-const MissionSection = () => (
-  <section style={{ background: "#172554" }} className="relative">
-    <div className="absolute inset-0 blueprint-grid-dense pointer-events-none" />
-    <div className="max-w-[800px] mx-auto px-6 max-[767px]:px-5 py-20 min-[900px]:py-[80px] max-[767px]:py-14 text-center relative">
-      <Reveal>
-        <div className="border border-white/10 p-8 max-[767px]:p-6" style={{ background: "rgba(15, 23, 42, 0.5)" }}>
-          <p className="font-body italic font-medium text-foreground/90 leading-[1.4]" style={{ fontSize: "clamp(24px, 3.5vw, 36px)" }}>
-            "Every child deserves to discover what they're capable of when distractions disappear. Our mission is to make focus a skill any child can build — without medication, without screens, and without shame."
-          </p>
-          <p className="font-mono text-[11px] text-white/30 mt-8 uppercase tracking-wider">— The FocusBox Team</p>
-        </div>
-      </Reveal>
-    </div>
-  </section>
-);
-
-const valuesData = [
+const beats: Beat[] = [
   {
-    Icon: Shield,
-    title: "Privacy Is Non-Negotiable",
-    body: "Zero child personal data. Everything runs on aliases. GDPR-ready from day one. Your family's information is never sold, shared, or compromised. Not now. Not ever.",
+    date: "BEFORE",
+    heading: "Neither of us could focus.",
+    body: "This is not a market we researched. It is a problem we both had, through most of school. One of us learned to work around it late and the hard way. The other still fights it. That is the whole reason this exists.",
   },
   {
-    Icon: Lightbulb,
-    title: "Screen-Free by Design",
-    body: "We believe the solution to digital distraction can't be another screen. FocusBox is a physical device — tactile, simple, and impossible to get distracted on.",
+    date: "SEPTEMBER 2025",
+    heading: "A business camp in Timișoara.",
+    body: "We met there. [FOUNDER-2] had been thinking about the idea for about two months. By the end of the week we had agreed to build it together, without much sense of what that would involve.",
   },
   {
-    Icon: TrendingUp,
-    title: "Progress Over Perfection",
-    body: "We don't chase perfect sessions. We celebrate showing up. Our entire system is designed around small, consistent improvements.",
+    date: "THE YEAR AFTER",
+    heading: "450 kilometres, every day.",
+    body: "[FOUNDER-1] is in Romania. [FOUNDER-2] is in Serbia. We built the entire thing over WhatsApp — specification, hardware design, the measurement model, the app — around two different school timetables. We did not meet again in person for 327 days.",
+  },
+  {
+    date: "[MONTH TBC]",
+    heading: "A school said yes.",
+    body: "A school in Vršac approved a three-to-four-week pilot. Executives at two companies told us to keep going. We had somewhere to test, and permission to test there.",
+  },
+  {
+    date: "[MONTH TBC]",
+    heading: "Then everything went at once.",
+    body: "The engineering team building the device left the project. Without them the school ended the initiative. We lost the lab, the 3D printer, the funding and the test window in the same week. The school that had agreed to host the pilot was still waiting for us. We had nothing to bring them.",
+  },
+  {
+    date: "[MONTH TBC]",
+    heading: "He built it anyway.",
+    body: "[FOUNDER-2] studies accounting and had never touched a circuit board. He built the prototype alone. It is ugly, the PCB is damaged, and the buttons work. It is on the front page of this site because it is the most honest thing we own.",
+  },
+  {
+    date: "[MONTH TBC]",
+    heading: "The olympiad was a funding strategy.",
+    body: "[FOUNDER-1] entered the national English olympiad for the money. First place at the international round carried a 3,050 RON scholarship — an actual salary, enough to buy components and keep going. He came second. No international round, but second still meant a merit scholarship of 750 RON a month. Then Romania discontinued the merit scholarship programme. The money was gone before it arrived.",
+  },
+  {
+    date: "[MONTH TBC]",
+    heading: "So we started a company to fund the company.",
+    body: "We began building and selling websites — cold calls, door to door, two sites live in Romania. It pays for components. Then customs holds the components, or they arrive damaged, and we spend a month arguing for a refund. That part is not in any pitch deck, and it is most of what the last year actually was.",
+  },
+  {
+    date: "[MONTH TBC]",
+    heading: "327 days later, we met again.",
+    body: null,
+    image: true,
+  },
+  {
+    date: "NOW",
+    heading: "Where this stands.",
+    body: "We have a prototype, booklet prototypes, an incomplete app, a full specification, and an audit that told us most of our measurement model needed rebuilding. We do not have production hardware, customers, or proof that any of it works. The school is still waiting. We intend to show up.",
   },
 ];
 
-const ValuesSection = () => (
-  <section className="relative py-24 min-[900px]:py-32 max-[767px]:py-16" style={{ background: "#0F172A" }}>
-    <div className="absolute inset-0 blueprint-grid pointer-events-none" />
-    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 relative">
-      <div className="max-w-[680px] mx-auto text-center mb-16 max-[767px]:mb-10">
-        <Reveal>
-          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">WHAT WE BELIEVE</span>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="font-display text-foreground mt-6" style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: 1.15 }}>
-            Principles that guide every decision.
-          </h2>
-        </Reveal>
+const TimelineBeat = ({ beat, index }: { beat: Beat; index: number }) => (
+  <Reveal delay={index === 0 ? 0 : 80}>
+    <div className="py-12 min-[900px]:py-16 border-b border-white/5">
+      <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary mb-4">
+        {beat.date}
       </div>
-      <div className="grid grid-cols-1 min-[900px]:grid-cols-3 gap-[1px]" style={{ background: "rgba(37, 99, 235, 0.1)" }}>
-        {valuesData.map((v, i) => (
-          <Reveal key={v.title} delay={200 + i * 100}>
-            <div className="p-9 max-[767px]:p-6 h-full" style={{ background: "#0F172A" }}>
-              <div className="w-12 h-12 border border-primary/30 flex items-center justify-center mb-6" style={{ background: "rgba(37, 99, 235, 0.1)" }}>
-                <v.Icon size={22} className="text-primary" />
-              </div>
-              <h3 className="font-body text-xl font-bold text-foreground mb-3">{v.title}</h3>
-              <p className="font-body text-[15px] text-muted-foreground leading-relaxed">{v.body}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const ApproachSection = () => (
-  <section className="relative py-24 min-[900px]:py-32 max-[767px]:py-16" style={{ background: "#172554" }}>
-    <div className="absolute inset-0 blueprint-grid-dense pointer-events-none" />
-    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 relative">
-      <div className="max-w-[680px] mx-auto text-center mb-16 max-[767px]:mb-10">
-        <Reveal>
-          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">OUR APPROACH</span>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="font-display text-foreground mt-6" style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: 1.15 }}>
-            Not an app. Not a toy. A system.
-          </h2>
-        </Reveal>
-      </div>
-      <Reveal delay={200}>
-        <div className="max-w-[960px] mx-auto border border-white/10 p-10 max-[767px]:p-6 min-[900px]:p-12" style={{ background: "rgba(15, 23, 42, 0.6)" }}>
-          <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-10 items-center">
-            <div className="space-y-5">
-              <p className="font-body text-base max-[767px]:text-[15px] text-muted-foreground leading-[1.7]">
-                Most focus solutions are either too simple (a dumb timer with no feedback) or too complex (clinical tools that pathologize your child). FocusBox sits in the middle.
-              </p>
-              <p className="font-body text-base max-[767px]:text-[15px] text-muted-foreground leading-[1.7]">
-                The device handles the child's experience: structured sessions, adaptive prompts, built-in breaks. The app handles yours: dashboards, weekly reports, AI-powered coaching plans.
-              </p>
-              <p className="font-body text-base max-[767px]:text-[15px] text-muted-foreground leading-[1.7]">
-                And because the device works completely offline with no internet or child-facing apps, you'll never worry about what your child is exposed to during focus time.
-              </p>
-            </div>
-            <div className="border border-white/10 overflow-hidden relative">
-              <img src="/placeholder.svg" alt="App dashboard mockup" className="w-full h-full object-cover" loading="lazy" width="400" height="300" />
-              <div className="absolute inset-0 scanlines pointer-events-none" />
-            </div>
-          </div>
-        </div>
-      </Reveal>
-    </div>
-  </section>
-);
-
-const teamMembers = [
-  { name: "Founder 1", role: "CEO & Product", bio: "Built the first prototype in a dorm room at 3 AM." },
-  { name: "Founder 2", role: "CTO & Engineering", bio: "Turns napkin sketches into shipping firmware." },
-  { name: "Founder 3", role: "Growth & Operations", bio: "Gets families excited before the product even arrives." },
-];
-
-const TeamSection = () => (
-  <section className="relative py-24 min-[900px]:py-32 max-[767px]:py-16" style={{ background: "#0F172A" }}>
-    <div className="absolute inset-0 blueprint-grid pointer-events-none" />
-    <div className="max-w-[1200px] mx-auto px-6 max-[767px]:px-5 relative">
-      <div className="max-w-[680px] mx-auto text-center mb-6">
-        <Reveal>
-          <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-primary">THE TEAM</span>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="font-display text-foreground mt-6" style={{ fontSize: "clamp(28px, 4vw, 48px)", lineHeight: 1.15 }}>
-            Young. Hungry. Been there.
-          </h2>
-        </Reveal>
-      </div>
-      <Reveal delay={150}>
-        <p className="font-body text-[17px] max-[767px]:text-[15px] text-muted-foreground text-center max-w-[640px] mx-auto mb-16 max-[767px]:mb-10 leading-[1.7]">
-          We're student founders who turned a personal pain into a product. We don't have decades of corporate experience — we have something better: we remember exactly what it feels like to be the kid who can't focus.
+      <h2 className="font-display text-foreground mb-5" style={{ fontSize: "clamp(24px, 3vw, 34px)", lineHeight: 1.2 }}>
+        {beat.heading}
+      </h2>
+      {beat.body && (
+        <p className="font-body text-[16px] min-[900px]:text-lg text-muted-foreground leading-[1.7] max-w-[680px]">
+          {beat.body}
         </p>
-      </Reveal>
-      <div className="grid grid-cols-1 min-[600px]:grid-cols-3 gap-10 max-w-[800px] mx-auto">
-        {teamMembers.map((m, i) => (
-          <Reveal key={m.name} delay={200 + i * 100}>
-            <div className="text-center">
-              <div className="w-[120px] h-[120px] border border-white/10 overflow-hidden mx-auto mb-5">
-                <img src="/placeholder.svg" alt={m.name} className="w-full h-full object-cover" loading="lazy" width="120" height="120" />
-              </div>
-              <h3 className="font-body text-lg font-bold text-foreground">{m.name}</h3>
-              <p className="font-mono text-[11px] font-medium text-primary">{m.role}</p>
-              <p className="font-body text-sm text-muted-foreground italic mt-1">{m.bio}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
-const AboutCTA = () => (
-  <section className="relative py-24 min-[900px]:py-28 max-[767px]:py-16 overflow-hidden" style={{ background: "#172554" }}>
-    <div className="absolute inset-0 blueprint-grid-dense pointer-events-none" />
-    <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.15), transparent 60%)" }} />
-    <div className="max-w-[720px] mx-auto px-6 max-[767px]:px-5 text-center relative z-10">
-      <Reveal>
-        <h2 className="font-display text-foreground mb-6" style={{ fontSize: "clamp(32px, 5vw, 52px)", lineHeight: 1.12 }}>
-          We're just getting started.
-          <br />
-          Come build with us.
-        </h2>
-      </Reveal>
-      <Reveal delay={100}>
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          <Link
-            to="/#pricing"
-            className="inline-flex items-center px-8 py-4 border border-primary text-foreground font-mono text-[12px] uppercase tracking-wider font-bold transition-all duration-200 hover:bg-primary hover:text-white"
-            style={{ background: "rgba(37, 99, 235, 0.15)" }}
-          >
-            Join as a Founding Family
-          </Link>
-          <Link
-            to="/contact"
-            className="inline-flex items-center px-8 py-4 border border-white/20 text-foreground font-mono text-[12px] uppercase tracking-wider font-semibold hover:border-white/40 transition-all duration-200"
-          >
-            Partner With Us
-          </Link>
+      )}
+      {beat.image && (
+        <div className="max-w-[560px] mt-2">
+          <ImageSlot
+            src="/media/founders.jpg"
+            alt="The two founders"
+            caption="[TO BE FILLED]"
+          />
         </div>
-      </Reveal>
-      <Reveal delay={200}>
-        <p className="font-mono text-[11px] text-white/25 tracking-wider">
-          14-day return guarantee · Cancel anytime · No child data collected
-        </p>
-      </Reveal>
+      )}
     </div>
-  </section>
+  </Reveal>
 );
 
 const About = () => (
   <>
     <PageMeta
-      title="About FocusBox — Our Story"
-      description="Built by student founders who grew up struggling with focus. FocusBox is the tool we wished we had as kids and the dashboard our parents deserved."
+      title="About FocusBox — We have been trying to build this for a year."
+      description="The year behind a screen-free focus trainer for children: two students, 450 kilometres apart, a cancelled pilot, a hand-built prototype, and an audit that sent us back to rebuild."
     />
-    <AboutHero />
-    <MissionSection />
-    <ValuesSection />
-    <ApproachSection />
-    <TeamSection />
-    <AboutCTA />
+    <section className="relative" style={{ background: "#0F172A" }}>
+      <div className="absolute inset-0 blueprint-grid pointer-events-none" />
+      <div className="max-w-[760px] mx-auto px-6 max-[767px]:px-5 pt-[140px] pb-8 relative">
+        <Reveal>
+          <h1
+            className="font-display text-foreground"
+            style={{ fontSize: "clamp(32px, 5vw, 52px)", lineHeight: 1.12 }}
+          >
+            We have been trying to build this for a year.
+          </h1>
+        </Reveal>
+      </div>
+    </section>
+
+    <section className="relative" style={{ background: "#0F172A" }}>
+      <div className="absolute inset-0 blueprint-grid pointer-events-none" />
+      <div className="max-w-[760px] mx-auto px-6 max-[767px]:px-5 pb-16 relative">
+        {beats.map((beat, i) => (
+          <TimelineBeat key={`${beat.date}-${i}`} beat={beat} index={i} />
+        ))}
+
+        {/* Founder block */}
+        <Reveal>
+          <div className="pt-16 space-y-8">
+            <div>
+              <h3 className="font-body text-lg font-bold text-foreground mb-2">
+                [FOUNDER-1] — Romania.
+              </h3>
+              <p className="font-body text-[15px] text-muted-foreground leading-[1.7] max-w-[680px]">
+                Designed the BLE protocol, the backend specification and the
+                measurement model, with no prior engineering experience. Second
+                place, national English olympiad.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-body text-lg font-bold text-foreground mb-2">
+                [FOUNDER-2] — Serbia.
+              </h3>
+              <p className="font-body text-[15px] text-muted-foreground leading-[1.7] max-w-[680px]">
+                Built the hardware prototype. Named Serbia&apos;s Best Young
+                Business Leader, 2025 — for other work, not for this.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
   </>
 );
 

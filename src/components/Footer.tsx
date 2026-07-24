@@ -2,15 +2,12 @@ import { Link } from "react-router-dom";
 import AnchorLink from "./AnchorLink";
 
 const productLinks = [
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Features", href: "/#features" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "The Mechanism", href: "/#waitlist" },
+  { label: "Join the Waitlist", href: "/#waitlist" },
 ];
 
 const companyLinks = [
   { label: "About", href: "/about" },
-  { label: "Investors", href: "/investors" },
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms of Service", href: "/terms" },
   { label: "Contact", href: "/contact" },
@@ -35,7 +32,7 @@ const Footer = () => {
               <span className="font-display text-lg text-white/60">FocusBox</span>
             </div>
             <p className="text-sm leading-relaxed font-mono text-[12px]">
-              Building the world's first fitness tracker for children's focus. Screen-free. Data-driven. Privacy-first.
+              A screen-free focus trainer for children aged 7–12. Currently at prototype stage. Nothing has shipped.
             </p>
           </div>
 
