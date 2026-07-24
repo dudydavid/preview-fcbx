@@ -2,16 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Reveal from "@/components/Reveal";
 import PageMeta from "@/components/PageMeta";
-import {
-  Mail,
-  Briefcase,
-  Shield,
-  Clock,
-  Lock,
-  Heart,
-  CheckCircle,
-  ChevronDown,
-} from "lucide-react";
+import { Mail, Briefcase } from "lucide-react";
+
+const inputCls =
+  "w-full border border-white/10 bg-transparent px-[18px] py-[14px] font-body text-[15px] max-[767px]:text-[16px] text-foreground placeholder:text-muted-foreground/50 outline-none transition-all duration-200 focus:border-primary focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]";
 
 const HeroSection = () => (
   <section className="relative" style={{ background: "#0F172A" }}>
@@ -24,206 +18,105 @@ const HeroSection = () => (
       </Reveal>
       <Reveal delay={80}>
         <h1 className="font-display text-foreground mb-5" style={{ fontSize: "clamp(32px, 4vw, 48px)", lineHeight: 1.12 }}>
-          Let's make this happen.
+          Say hello.
         </h1>
       </Reveal>
       <Reveal delay={140}>
         <p className="font-body text-[17px] max-[767px]:text-[15px] text-muted-foreground leading-relaxed max-w-lg mx-auto">
-          Whether you're a parent ready to transform your child's focus, or an investor who sees the opportunity — we'd love to hear from you.
+          If you want to follow the build, host a pilot, or just ask a question,
+          write to us. To join the waitlist, use the form on the home page.
         </p>
       </Reveal>
     </div>
   </section>
 );
 
-const inputCls =
-  "w-full border border-white/10 bg-transparent px-[18px] py-[14px] font-body text-[15px] max-[767px]:text-[16px] text-foreground placeholder:text-muted-foreground/50 outline-none transition-all duration-200 focus:border-primary focus:shadow-[0_0_0_3px_rgba(37,99,235,0.1)]";
-
-const selectWrapCls = "relative";
-
-const ParentForm = () => {
+const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
-  const [country, setCountry] = useState("");
-  const [agreed, setAgreed] = useState(false);
 
-  if (submitted)
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // TODO: wire this up to a real endpoint. Not connected to any third-party
+    // service and no data is stored.
+    setSubmitted(true);
+  };
+
+  if (submitted) {
     return (
       <div className="flex flex-col items-center py-12 text-center">
-        <div className="w-16 h-16 border border-success/30 flex items-center justify-center mb-5" style={{ background: "rgba(16,185,129,0.1)" }}>
-          <CheckCircle size={32} className="text-success" />
-        </div>
-        <h3 className="font-body text-2xl font-bold text-foreground mb-2">You're on the list!</h3>
-        <p className="font-body text-[15px] text-muted-foreground mb-6">We'll be in touch within 48 hours.</p>
-        <Link to="/" className="font-mono text-[12px] font-semibold text-primary uppercase tracking-wider">Back to Home →</Link>
+        <h3 className="font-body text-2xl font-bold text-foreground mb-2">
+          Thanks — message noted.
+        </h3>
+        <p className="font-body text-[15px] text-muted-foreground mb-6">
+          We read everything ourselves. We&apos;ll reply when we can.
+        </p>
+        <Link to="/" className="font-mono text-[12px] font-semibold text-primary uppercase tracking-wider">
+          Back to Home →
+        </Link>
       </div>
     );
+  }
 
   return (
-    <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <h3 className="font-body text-xl font-bold text-foreground mb-1">Join the Founding Families</h3>
-        <p className="font-body text-[15px] text-muted-foreground mb-6">Limited spots in our first cohort.</p>
+        <h3 className="font-body text-xl font-bold text-foreground mb-1">Send a message</h3>
+        <p className="font-body text-[15px] text-muted-foreground mb-6">
+          No payment, no commitment.
+        </p>
       </div>
-      <input type="text" placeholder="Full Name" required className={inputCls} />
-      <input type="email" placeholder="Email Address" required className={inputCls} />
-      <div className={selectWrapCls}>
-        <select value={country} onChange={(e) => setCountry(e.target.value)} required className={`${inputCls} appearance-none cursor-pointer`}>
-          <option value="" disabled>Country</option>
-          <option value="Serbia">Serbia</option>
-          <option value="Romania">Romania</option>
-          <option value="Other">Other</option>
-        </select>
-        <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
-      </div>
-      {country === "Other" && <input type="text" placeholder="Your country" required className={inputCls} />}
-      <div className={selectWrapCls}>
-        <select required className={`${inputCls} appearance-none cursor-pointer`} defaultValue="">
-          <option value="" disabled>Child's Age Range</option>
-          <option value="5-7">5–7</option>
-          <option value="8-10">8–10</option>
-          <option value="11-12">11–12</option>
-          <option value="13+">13+</option>
-          <option value="multiple">Multiple children</option>
-        </select>
-        <ChevronDown size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
-      </div>
-      <textarea rows={3} placeholder="What's your biggest challenge with your child's focus? (optional)" className={inputCls} style={{ resize: "none" }} />
-      <label className="flex items-start gap-3 cursor-pointer select-none">
-        <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} required className="mt-1 h-[18px] w-[18px]" style={{ accentColor: "#2563EB" }} />
-        <span className="font-body text-[13px] text-muted-foreground leading-snug">I agree to receive updates about FocusBox.</span>
-      </label>
-      <button type="submit" className="w-full py-4 border border-primary text-foreground font-mono text-[12px] uppercase tracking-wider font-bold transition-all duration-200 hover:bg-primary hover:text-white" style={{ background: "rgba(37, 99, 235, 0.15)" }}>
-        Request My Spot
+      <label htmlFor="c-name" className="sr-only">Full name</label>
+      <input id="c-name" type="text" placeholder="Full Name" required className={inputCls} />
+      <label htmlFor="c-email" className="sr-only">Email address</label>
+      <input id="c-email" type="email" placeholder="Email Address" required className={inputCls} />
+      <label htmlFor="c-msg" className="sr-only">Message</label>
+      <textarea id="c-msg" rows={4} placeholder="What would you like to say? (optional)" className={inputCls} style={{ resize: "none" }} />
+      <button
+        type="submit"
+        className="w-full py-4 border border-primary text-foreground font-mono text-[12px] uppercase tracking-wider font-bold transition-all duration-200 hover:bg-primary hover:text-white"
+        style={{ background: "rgba(37, 99, 235, 0.15)" }}
+      >
+        Send Message
       </button>
     </form>
   );
 };
 
-const InvestorForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [agreed, setAgreed] = useState(false);
-
-  if (submitted)
-    return (
-      <div className="flex flex-col items-center py-12 text-center">
-        <div className="w-16 h-16 border border-success/30 flex items-center justify-center mb-5" style={{ background: "rgba(16,185,129,0.1)" }}>
-          <CheckCircle size={32} className="text-success" />
+const FormSection = () => (
+  <section style={{ background: "#172554" }} className="relative">
+    <div className="absolute inset-0 blueprint-grid-dense pointer-events-none" />
+    <div className="max-w-[640px] mx-auto px-6 max-[767px]:px-5 py-20 max-[767px]:py-14 relative">
+      <Reveal>
+        <div className="border border-white/10 p-10 max-[767px]:p-6" style={{ background: "rgba(15, 23, 42, 0.6)" }}>
+          <ContactForm />
         </div>
-        <h3 className="font-body text-2xl font-bold text-foreground mb-2">Brief on its way!</h3>
-        <p className="font-body text-[15px] text-muted-foreground mb-6">Check your inbox within 24 hours.</p>
-        <Link to="/" className="font-mono text-[12px] font-semibold text-primary uppercase tracking-wider">Back to Home →</Link>
-      </div>
-    );
-
-  return (
-    <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-5">
-      <div>
-        <h3 className="font-body text-xl font-bold text-foreground mb-1">Request the Investor Brief</h3>
-        <p className="font-body text-[15px] text-muted-foreground mb-6">We'll send our full investor package within 24 hours.</p>
-      </div>
-      <input type="text" placeholder="Full Name" required className={inputCls} />
-      <input type="email" placeholder="Email Address" required className={inputCls} />
-      <input type="text" placeholder="Organization / Fund Name" required className={inputCls} />
-      <input type="text" placeholder="Role / Title (optional)" className={inputCls} />
-      <textarea rows={3} placeholder="What caught your interest? (optional)" className={inputCls} style={{ resize: "none" }} />
-      <label className="flex items-start gap-3 cursor-pointer select-none">
-        <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} required className="mt-1 h-[18px] w-[18px]" style={{ accentColor: "#2563EB" }} />
-        <span className="font-body text-[13px] text-muted-foreground leading-snug">I agree to receive investor updates from FocusBox.</span>
-      </label>
-      <button type="submit" className="w-full py-4 border border-white/20 bg-foreground text-background font-mono text-[12px] uppercase tracking-wider font-bold transition-all duration-200 hover:bg-primary hover:text-white">
-        Request Investor Brief
-      </button>
-    </form>
-  );
-};
-
-const FormSection = () => {
-  const [tab, setTab] = useState<"parent" | "investor">("parent");
-
-  return (
-    <section style={{ background: "#172554" }} className="relative">
-      <div className="absolute inset-0 blueprint-grid-dense pointer-events-none" />
-      <div className="max-w-[640px] mx-auto px-6 max-[767px]:px-5 py-20 max-[767px]:py-14 relative">
-        <Reveal>
-          <div className="flex justify-center mb-10">
-            <div className="inline-flex border border-white/10">
-              <button
-                onClick={() => setTab("parent")}
-                className={`px-6 py-2.5 font-mono text-[12px] uppercase tracking-wider font-semibold transition-all duration-200 ${
-                  tab === "parent" ? "bg-foreground text-background" : "text-muted-foreground"
-                }`}
-              >
-                I'm a Parent
-              </button>
-              <button
-                onClick={() => setTab("investor")}
-                className={`px-6 py-2.5 font-mono text-[12px] uppercase tracking-wider font-semibold transition-all duration-200 ${
-                  tab === "investor" ? "bg-foreground text-background" : "text-muted-foreground"
-                }`}
-              >
-                I'm an Investor
-              </button>
-            </div>
-          </div>
-        </Reveal>
-        <Reveal delay={100}>
-          <div className="border border-white/10 p-10 max-[767px]:p-6" style={{ background: "rgba(15, 23, 42, 0.6)" }}>
-            <div key={tab}>
-              {tab === "parent" ? <ParentForm /> : <InvestorForm />}
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-};
+      </Reveal>
+    </div>
+  </section>
+);
 
 const AltContactSection = () => (
   <section style={{ background: "#0F172A" }} className="relative">
     <div className="absolute inset-0 blueprint-grid pointer-events-none" />
     <div className="max-w-[640px] mx-auto px-6 max-[767px]:px-5 py-16 max-[767px]:py-10 text-center relative">
       <Reveal>
-        <h3 className="font-body text-lg font-bold text-foreground mb-6">Prefer email?</h3>
+        <h2 className="font-body text-lg font-bold text-foreground mb-6">Prefer email?</h2>
       </Reveal>
       <div className="grid min-[600px]:grid-cols-2 gap-[1px]" style={{ background: "rgba(37, 99, 235, 0.1)" }}>
         <Reveal delay={80}>
           <div className="p-7 max-[767px]:p-5 text-center" style={{ background: "#0F172A" }}>
             <Mail size={32} className="mx-auto mb-3 text-primary" />
-            <p className="font-body text-[15px] font-bold text-foreground mb-1">Parents & Families</p>
+            <p className="font-body text-[15px] font-bold text-foreground mb-1">General</p>
             <a href="mailto:hello@focusbox.io" className="font-mono text-[12px] text-primary">hello@focusbox.io</a>
           </div>
         </Reveal>
         <Reveal delay={160}>
           <div className="p-7 max-[767px]:p-5 text-center" style={{ background: "#0F172A" }}>
             <Briefcase size={32} className="text-foreground mx-auto mb-3" />
-            <p className="font-body text-[15px] font-bold text-foreground mb-1">Investors & Partners</p>
-            <a href="mailto:invest@focusbox.io" className="font-mono text-[12px] text-foreground/60">invest@focusbox.io</a>
+            <p className="font-body text-[15px] font-bold text-foreground mb-1">Pilots &amp; Partners</p>
+            <a href="mailto:hello@focusbox.io" className="font-mono text-[12px] text-foreground/60">hello@focusbox.io</a>
           </div>
         </Reveal>
-      </div>
-    </div>
-  </section>
-);
-
-const trustItems = [
-  { icon: Shield, text: "Privacy-first. Always." },
-  { icon: Clock, text: "48-hour response time" },
-  { icon: Lock, text: "Your data stays yours" },
-  { icon: Heart, text: "Built by parents, for parents" },
-];
-
-const TrustStrip = () => (
-  <section className="border-t border-white/10" style={{ background: "#0F172A" }}>
-    <div className="max-w-[800px] mx-auto px-6 max-[767px]:px-5 py-12">
-      <div className="grid grid-cols-2 min-[768px]:grid-cols-4 gap-6">
-        {trustItems.map((t, i) => (
-          <Reveal key={t.text} delay={60 + i * 60}>
-            <div className="flex flex-col items-center text-center gap-2">
-              <t.icon size={20} className="text-muted-foreground" />
-              <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider">{t.text}</span>
-            </div>
-          </Reveal>
-        ))}
       </div>
     </div>
   </section>
@@ -232,13 +125,12 @@ const TrustStrip = () => (
 const Contact = () => (
   <>
     <PageMeta
-      title="Contact FocusBox — Join the Founding Families"
-      description="Request your spot as a Founding Family or get in touch about investment opportunities."
+      title="Contact FocusBox"
+      description="Get in touch with the two students building FocusBox, a screen-free focus trainer for children aged 7–12, currently at prototype stage."
     />
     <HeroSection />
     <FormSection />
     <AltContactSection />
-    <TrustStrip />
   </>
 );
 

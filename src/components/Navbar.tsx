@@ -5,9 +5,7 @@ import AnchorLink from "./AnchorLink";
 
 const navLinks = [
   { label: "About", href: "/about", type: "route" as const },
-  { label: "Investors", href: "/investors", type: "route" as const },
-  { label: "Pricing", href: "/#pricing", type: "anchor" as const },
-  { label: "Contact", href: "/contact", type: "route" as const },
+  { label: "Waitlist", href: "/#waitlist", type: "anchor" as const },
 ];
 
 const Navbar = () => {
@@ -91,10 +89,10 @@ const Navbar = () => {
 
         {/* Desktop CTA */}
         <AnchorLink
-          to="/#pricing"
+          to="/#waitlist"
           className="hidden min-[900px]:inline-flex items-center px-5 py-2.5 border border-white/20 text-foreground font-mono text-[12px] uppercase tracking-wider transition-all duration-200 hover:bg-foreground hover:text-background"
         >
-          Get Started
+          Join the waitlist
         </AnchorLink>
 
         {/* Mobile Hamburger */}
@@ -138,11 +136,11 @@ const Navbar = () => {
               )
             )}
             <AnchorLink
-              to="/#pricing"
+              to="/#waitlist"
               className="inline-flex items-center justify-center px-5 py-2.5 border border-white/20 text-foreground font-mono text-[12px] uppercase tracking-wider mt-2 transition-all duration-200 hover:bg-foreground hover:text-background"
               onClick={() => setMobileOpen(false)}
             >
-              Get Started
+              Join the waitlist
             </AnchorLink>
           </div>
         </div>
