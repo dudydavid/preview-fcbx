@@ -12,7 +12,7 @@ import InterruptionDemo from "@/components/sections/InterruptionDemo";
 const heroStats = [
   { num: "7–12", label: "Age range we design for" },
   { num: "0", label: "Screens for the child" },
-  { num: "0", label: "Pieces of personal data collected about the child" },
+  { num: "0", label: "Personal data collected about the child" },
 ];
 
 const HeroSection = () => (
@@ -31,7 +31,7 @@ const HeroSection = () => (
               style={{ background: "rgba(37, 99, 235, 0.06)" }}
             >
               <span className="font-mono text-[11px] font-semibold text-foreground tracking-wider uppercase">
-                PROTOTYPE STAGE · PILOT SCHOOL CONFIRMED · NOT YET SHIPPING
+                PROTOTYPE STAGE — PILOT SCHOOL CONFIRMED — NOT YET SHIPPING
               </span>
             </div>
           </Reveal>
@@ -47,9 +47,9 @@ const HeroSection = () => (
 
           <Reveal delay={200}>
             <p className="font-body text-lg text-muted-foreground max-w-[500px] mb-8 leading-relaxed">
-              A small device on the desk. A dashboard for the parent. Nothing for
-              the child to get lost in. We are two students, we have been building
-              this for a year, and it is not finished.
+              A small device on the desk. A dashboard for the parent. No screen
+              for the child, and nothing to get lost in. We are two students
+              building it, and we have been at it for a year.
             </p>
           </Reveal>
 
@@ -140,12 +140,12 @@ const ProblemSection = () => (
 
       <Reveal delay={200}>
         <p className="font-body text-lg max-[767px]:text-[15px] text-muted-foreground leading-relaxed mb-12">
-          Sitting still gets treated as a character trait — a child either has it
-          or doesn&apos;t, and the ones who don&apos;t get labelled early. Lazy.
-          Disruptive. Not trying. The more useful truth is that attention is a
-          skill, it develops unevenly, and it can be practised. It needs what any
-          other skill needs: short repeated effort, and someone who notices when
-          it improves.
+          Sitting still is treated as a character trait. A child either has it or
+          doesn&apos;t, and the ones who don&apos;t get labelled early — lazy,
+          disruptive, not trying. The truth is more useful than that: attention is
+          a skill that develops unevenly, and it can be practised. It just needs
+          the same thing any other skill needs — short, repeated, measured effort,
+          and someone who notices when it improves.
         </p>
       </Reveal>
 
@@ -172,8 +172,8 @@ const ProblemSection = () => (
 
       <Reveal delay={500}>
         <p className="font-body text-[15px] text-muted-foreground/80 leading-relaxed">
-          We are not clinicians, and FocusBox is not a treatment. It is practice
-          equipment.
+          We are not clinicians and FocusBox is not a treatment. It&apos;s
+          practice equipment.
         </p>
       </Reveal>
     </div>
@@ -221,7 +221,7 @@ const MechanismSection = () => (
             className="font-display text-foreground mt-6"
             style={{ fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.15 }}
           >
-            Twenty minutes, a few check-ins, one honest record.
+            Twenty minutes, four check-ins, one honest record.
           </h2>
         </Reveal>
       </div>
@@ -244,31 +244,19 @@ const MechanismSection = () => (
         ))}
       </div>
 
-      <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-6">
-        <Reveal>
-          <div className="border border-white/10 p-8 max-[767px]:p-6 h-full" style={{ background: "rgba(255, 255, 255, 0.02)" }}>
-            <h3 className="font-body text-lg font-bold text-foreground mb-3">
-              Keeping it honest
-            </h3>
-            <p className="font-body text-[15px] text-muted-foreground leading-relaxed">
-              Children are good at gaming systems — we were. We are designing
-              detection for button-mashing, pause-cycling and fake early finishes,
-              so that unreliable sessions get filtered out of the record rather
-              than punished. It is specified and not yet built.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={100}>
-          <div className="border border-white/10 p-8 max-[767px]:p-6 h-full" style={{ background: "rgba(255, 255, 255, 0.02)" }}>
-            <h3 className="font-body text-lg font-bold text-foreground mb-3">
-              The material is ours too
-            </h3>
-            <p className="font-body text-[15px] text-muted-foreground leading-relaxed mb-6">
-              The child works from booklets we design, so that practice and
-              measurement fit together instead of competing for the same
-              attention. Prototypes exist. Testing them is next.
-            </p>
+      <Reveal>
+        <div className="border border-white/10 p-8 max-[767px]:p-6" style={{ background: "rgba(255, 255, 255, 0.02)" }}>
+          <div className="grid grid-cols-1 min-[900px]:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="font-body text-lg font-bold text-foreground mb-3">
+                The material is ours too.
+              </h3>
+              <p className="font-body text-[15px] text-muted-foreground leading-relaxed">
+                The child works from booklets we design, so practice and
+                measurement fit together instead of competing. Prototypes exist;
+                they&apos;re the next thing we test.
+              </p>
+            </div>
             <ImageSlot
               src="/media/booklets.jpg"
               alt="FocusBox booklet prototypes"
@@ -276,8 +264,8 @@ const MechanismSection = () => (
               caption="Booklet prototypes."
             />
           </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </div>
   </section>
 );
@@ -349,10 +337,10 @@ const ParentSection = () => (
               </h3>
               <p className="font-body text-[15px] text-muted-foreground leading-relaxed">
                 Thirty seconds after a session, a parent or teacher rates
-                engagement, organisation and disruption. It is the best-validated
-                instrument we could find, it is how we check whether the device
-                agrees with reality, and it is adapted from a US school programme
-                called I-Connect.
+                engagement, organisation and disruption. It&apos;s the oldest and
+                best-validated instrument we could find, it&apos;s how we check
+                whether the device agrees with reality, and it&apos;s adapted from
+                a US school programme called I-Connect.
               </p>
             </div>
           </Reveal>
